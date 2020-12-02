@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700&display=swap");
+@import "../../Styles/reset.scss";
+
+$common-background-color: #fafafa;
+$common-border-style: 2px solid #e9e9e9;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: $common-background-color;
+  height: 100vh;
+}
+
+strong,
+.strong-font {
+  font-weight: 600;
+}
+
+.light-font {
+  opacity: 0.5;
+}
+
+.delete-hyper-link {
+  text-decoration: none;
+  color: black;
+}
+
+.small-profile-image {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.add-cursor {
+  cursor: pointer;
+}
+
+#root {
+  height: 100%;
+}
