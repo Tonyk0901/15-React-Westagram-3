@@ -1,5 +1,5 @@
 import React from 'react';
-import './Main.scss';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // Fontawesome Icons
 import { faCompass as farCompass } from '@fortawesome/free-regular-svg-icons';
@@ -12,17 +12,19 @@ import { faCaretSquareUp as farCaretSquareUp } from '@fortawesome/free-regular-s
 import { faBookmark as farBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faSearch as fasSearch } from '@fortawesome/free-solid-svg-icons';
 
+import './Main.scss';
+
 class Main extends React.Component {
   componentDidMount() {
     const { loggedIn } = this.props.location;
     if (!loggedIn) {
-      this.props.history.push("/");
+      this.props.history.push("/LoginKim");
     }
   }
   render() {
     return (
-      <>
-        <nav className="nav">
+      <div className="MainKim">
+        <nav>
           <div className="nav-wrapper">
             <div className="nav-logos">
               <a className="delete-hyper-link" href="/">
@@ -32,7 +34,7 @@ class Main extends React.Component {
             </div>
             <div className="nav-input-container">
               <FontAwesomeIcon className="faIcon" icon={fasSearch} />
-              <input className="fas" placeholder="검색" />
+              <input placeholder="검색" />
             </div>
             <ul className="nav-menu-icons">
               <li>
@@ -53,7 +55,7 @@ class Main extends React.Component {
               <header className="feed-header">
                 <div className="feed-header-column">
                   <a className="delete-hyper-link" href="/">
-                    <img src="images/sunghoonkim/iuProfilePic.jpeg" className="small-profile-image" alt="IU" />
+                    <img src="images/sunghoonkim/iuProfilePic.jpeg" alt="IU" />
                   </a>
                   <a className="delete-hyper-link" href="/">
                     <span className="feed-header-profilename strong-font">dlwlrma</span>
@@ -78,23 +80,23 @@ class Main extends React.Component {
               </section>
               <section className="feed-likes">
                 <img src="images/sunghoonkim/iuImageSample2.jpg" alt="IU" />
-                <span className="feed-like">
+                <span>
                   <strong>sunghoon_kim</strong>
-                                    님이
-                                    <strong>매우</strong>
-                                    좋아합니다.
-                                </span>
+                  <span>&nbsp;님이</span>
+                  <strong>&nbsp;매우</strong>
+                  <span>&nbsp;좋아합니다.</span>
+                </span>
               </section>
               <section className="feed-contents">
-                <div className="feed-content">
+                <div>
                   <strong>dlwlrma</strong>
-                                    &nbsp;5th mini album
-                                    <a href="/" className="delete-hyper-link">
+                  <span>&nbsp;5th mini album&nbsp;</span>
+                  <Link to='/MainKim' className="delete-hyper-link">
                     <span className="hashTag">#Lovepoem</span>
-                  </a>
+                  </Link>
                   <span className="light-font add-cursor">
                     &nbsp;더 보기
-                                    </span>
+                  </span>
                 </div>
               </section>
               <section className="feed-comments">
@@ -112,7 +114,7 @@ class Main extends React.Component {
               <img src="images/sunghoonkim/iuImageSample2.jpg" alt="IU" />
               <div className="main-right-profile-column">
                 <div className="main-right-profile-name strong-font">sunghoon_kim</div>
-                <div className="main-right-profile-desc light-font">지은쨩 | 커여웡</div>
+                <div className="main-right-profile-desc light-font">징쨩 | 커여웡</div>
               </div>
             </section>
             <section className="main-right-stories">
@@ -145,11 +147,11 @@ class Main extends React.Component {
               </section>
             </section>
             <section className="main-right-recommends">
-              <header className="main-right-recommend-header">
+              <header>
                 <div className="main-right-recommend-header-column light-font">회원님을 위한 추천</div>
                 <div className="main-right-recommend-header-column strong-font add-cursor">모두 보기</div>
               </header>
-              <section className="main-right-recommend">
+              <section>
                 <div className="main-right-recommend-body">
                   <div className="main-right-recommend-bigcolumn">
                     <img src="images/sunghoonkim/iuImageSample4.jpg" alt="IU" />
@@ -159,7 +161,7 @@ class Main extends React.Component {
                     </div>
                   </div>
                   <div className="main-right-recommend-bigcolumn">
-                    <a href="/">팔로우</a>
+                    <Link to="/MainKim">팔로우</Link>
                   </div>
                 </div>
                 <div className="main-right-recommend-body">
@@ -171,7 +173,7 @@ class Main extends React.Component {
                     </div>
                   </div>
                   <div className="main-right-recommend-bigcolumn">
-                    <a href="/">팔로우</a>
+                    <Link to="/MainKim">팔로우</Link>
                   </div>
                 </div>
                 <div className="main-right-recommend-body">
@@ -183,13 +185,13 @@ class Main extends React.Component {
                     </div>
                   </div>
                   <div className="main-right-recommend-bigcolumn">
-                    <a href="/">팔로우</a>
+                    <Link to="/MainKim">팔로우</Link>
                   </div>
                 </div>
               </section>
             </section>
             <footer className="main-right-footers">
-              <ul className="main-right-footer-body">
+              <ul>
                 <li>
                   <a href="/" className="light-font delete-hyper-link">Instagram정보&nbsp;·&nbsp;</a>
                 </li>
@@ -213,7 +215,7 @@ class Main extends React.Component {
             </footer>
           </div>
         </main>
-      </>
+      </div>
     )
 
   }

@@ -5,7 +5,7 @@ import './Login.scss';
 class Login extends React.Component {
   render() {
     return (
-      <main className="Login">
+      <main className="LoginKim">
         <div>
           <h1>Westagram</h1>
           <form>

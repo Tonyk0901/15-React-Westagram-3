@@ -1,19 +1,17 @@
 @import "../Common.scss";
 
-.Login {
+.LoginKim {
+  @extend %flex-center;
   height: 100%;
   background-color: $common-background-color;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   div {
+    position: relative;
     width: 700px;
     height: 760px;
     background-color: white;
     border: $common-border-style;
     border-radius: 10px;
-    position: relative;
   }
 
   h1 {
@@ -26,11 +24,9 @@
   }
 
   form {
-    width: 100%;
-    display: flex;
+    @extend %flex-center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 
     .login-form-input,
     .login-form-button {
@@ -42,30 +38,30 @@
     }
 
     .login-form-input {
-      background-color: $common-background-color;
-      border: $common-border-style;
       margin-bottom: 12px;
       padding-left: 20px;
+      background-color: $common-background-color;
+      border: $common-border-style;
     }
 
     .login-form-button {
       margin-top: 20px;
+      background-color: #c4e1fc;
       border: $common-border-style;
       border-width: 1px;
       font-size: 25px;
       color: white;
-      background-color: #c4e1fc;
       cursor: pointer;
     }
   }
 
   section {
-    width: 100%;
     position: absolute;
     bottom: 50px;
-    font-size: 25px;
     display: flex;
     justify-content: center;
+    width: 100%;
+    font-size: 25px;
     text-decoration: none;
     color: #375185;
   }
