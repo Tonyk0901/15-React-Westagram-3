@@ -9,25 +9,24 @@ class Login extends Component {
     this.state = {
       inputId: "",
       inputPw: "",
-      isValidId: false,
-      isValidPw: false,
-      allowLogin: false,
       errorMessage: "",
     };
   }
 
   handleSubmit = () => {
-    this.props.history.push("/main");
+    this.props.history.push("/MainLee");
   };
 
-  validatePw = (pw) => {
+  // 첫번째 인자 : validating 할 password
+  // 두번째 인자 : 에러 메세지 state 변경 여부
+  validatePw = (pw, setErrorMsg = true) => {
     const pwValidation = {
       regexUppercase: /[A-Z]/g,
       regexLowercase: /[a-z]/g,
       regexSpecialCharacter: /[!|@|#|$|%|^|&|*]/g,
       regexDigit: /[0-9]/g,
     };
-    const errorMatchEngToKor = {
+    const errMsgMatch = {
       regexUppercase: "영어 대문자를",
       regexLowercase: "영어 소문자를",
       regexSpecialCharacter: "특수 문자를",
@@ -36,20 +35,27 @@ class Login extends Component {
     const MIN_PW_LENGTH = 8;
     const pwLength = pw.length;
 
+    if (setErrorMsg && !pwLength) {
+      this.setState({ errorMessage: "" });
+      return false;
+    }
+
     for (let validType in pwValidation) {
       if (!pw.match(pwValidation[validType]) && pwLength) {
-        this.setState({
-          errorMessage: `비밀번호는 ${errorMatchEngToKor[validType]} 포함해야 합니다.`,
-        });
+        if (setErrorMsg)
+          this.setState({
+            errorMessage: `비밀번호는 ${errMsgMatch[validType]} 포함해야 합니다.`,
+          });
         return false;
       }
     }
 
     if (pwLength >= MIN_PW_LENGTH) return true;
-    else if (!pwLength) {
-      this.setState({ errorMessage: "" });
-    } else {
-      this.setState({ errorMessage: "비밀번호는 8자리 이상입니다." });
+    else {
+      if (setErrorMsg)
+        this.setState({
+          errorMessage: pwLength ? "비밀번호는 8자리 이상입니다." : "",
+        });
       return false;
     }
   };
@@ -59,25 +65,14 @@ class Login extends Component {
     return id.match(validIdRegExp) ? true : false;
   };
 
+  validateInput = () => {};
+
   handleInputChange = (e) => {
     const { name, value } = e.target;
-    let isValidId = false;
-    let isValidPw = false;
-    let isValidInput = false;
-
-    if (name === "inputId") {
-      isValidId = this.validateId(value);
-      isValidPw = this.validatePw(this.state.inputPw);
-      isValidInput = isValidId && isValidPw;
-    } else {
-      isValidId = this.validateId(this.state.inputId);
-      isValidPw = this.validatePw(value);
-      isValidInput = isValidId && isValidPw;
-    }
-
-    isValidInput ? this.setState({ allowLogin: true }) : this.setState({ allowLogin: false });
-    isValidId ? this.setState({ isValidId: true }) : this.setState({ isValidId: false });
-    isValidPw ? this.setState({ isValidPw: true }) : this.setState({ isValidPw: false });
+    const { validateId, validatePw } = this;
+    let isValidId = name === "inputId" ? validateId(value) : validateId(this.state.inputId);
+    let isValidPw = name === "inputId" ? validatePw(this.state.inputPw) : validatePw(value);
+    let isValidInput = isValidId && isValidPw;
 
     if (isValidInput) this.setState({ errorMessage: "" });
     if (isValidPw && !isValidId) this.setState({ errorMessage: "올바른 이메일을 입력해 주세요." });
@@ -85,11 +80,17 @@ class Login extends Component {
     this.setState({
       [name]: value,
     });
+  };
 
-    return { isValidId, isValidPw, isValidInput };
+  hello = () => {
+    console.log("hi!");
   };
 
   render() {
+    const { inputId, inputPw, errorMessage } = this.state;
+    const isValidId = this.validateId(inputId);
+    const isValidPw = this.validatePw(inputPw, false);
+
     return (
       <section className="Login">
         <header className="title-box">
@@ -98,36 +99,24 @@ class Login extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            className="id"
+            className={`id ${isValidId ? "correct-input" : ""}`}
             name="inputId"
             placeholder="이메일을 입력해주세요."
-            value={this.state.inputId}
-            style={this.state.isValidId ? { borderColor: "green" } : { borderColor: "rgb(219,219,219)" }}
+            value={inputId}
             onChange={this.handleInputChange}
           />
           <input
             type="password"
-            className="password"
+            className={`password ${isValidPw ? "correct-input" : ""}`}
             name="inputPw"
             placeholder="비밀번호"
-            value={this.state.inputPw}
-            style={this.state.isValidPw ? { borderColor: "green" } : { borderColor: "rgb(219,219,219)" }}
+            value={inputPw}
             onChange={this.handleInputChange}
           />
-          <p
-            className="valid-check-message"
-            style={this.state.errorMessage ? { display: "block" } : { display: "none" }}
-          >
-            {this.state.errorMessage}
-          </p>
+          <p className={`valid-check-message ${errorMessage ? "show-error-message" : ""}`}>{errorMessage}</p>
           <button
-            className="login-button"
-            style={
-              this.state.allowLogin
-                ? { backgroundColor: "blue", cursor: "pointer" }
-                : { backgroundColor: "#C5E0FC", cursor: "default" }
-            }
-            disabled={!this.state.allowLogin}
+            className={`login-button ${isValidId && isValidPw ? "allow-login" : ""}`}
+            disabled={!(isValidId && isValidPw)}
           >
             로그인
           </button>
