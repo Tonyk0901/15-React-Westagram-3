@@ -1,0 +1,71 @@
+@import "../reset.scss";
+.Login {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: $login-box-height;
+  width: $login-box-width;
+  margin: 200px auto;
+  background-color: white;
+  border: 1px solid $dark-gray;
+
+  .title-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0 10px 0;
+    font-family: "Lobster", cursive;
+    font-size: 50px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      height: 36px;
+      width: 266px;
+      padding: 0 7px;
+      border: 1px solid $dark-gray;
+      background-color: $light-gray;
+      border-radius: 3px;
+    }
+
+    button {
+      height: 30px;
+      width: 268px;
+      margin-top: 14px;
+      background-color: #c5e0fc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    input.password {
+      margin-top: 6px;
+    }
+
+    .valid-check-message {
+      display: none;
+      margin-top: 14px;
+      font-size: 14px;
+      color: rgb(194, 63, 40);
+    }
+  }
+
+  .footer-box {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 135px;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    color: rgb(0, 55, 107);
+  }
+}

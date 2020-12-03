@@ -1,0 +1,8 @@
+@import "../../../reset.scss";
+.feed-box {
+  display: flex;
+  flex-direction: column;
+  width: 614px;
+  margin: 20px 0 40px 0;
+  background-color: white;
+}

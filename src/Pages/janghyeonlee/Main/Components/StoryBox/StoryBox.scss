@@ -1,0 +1,24 @@
+@import "../../../reset.scss";
+.story-box {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: white;
+  width: 614px;
+  height: 118px;
+}
+
+.story-icon-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 15px;
+  width: 70px;
+  height: 70px;
+  .circle-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+}

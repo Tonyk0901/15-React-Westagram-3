@@ -1,0 +1,49 @@
+@import "../../../../reset.scss";
+.feed-header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 59px;
+
+  .feed-publisher-box {
+    display: flex;
+    align-items: center;
+
+    .feed-publisher-profile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 38px;
+      height: 38px;
+      margin-right: 10px;
+      border-radius: 100%;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+      }
+    }
+
+    .feed-publisher-info-box {
+      display: flex;
+      flex-direction: column;
+      .feed-publisher-name {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .feed-publisher-place {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .feed-header-menu {
+    border: none;
+    border-radius: 100%;
+    font-weight: 600;
+    font-family: "Times New Roman";
+    background-color: white;
+    width: 20px;
+    height: 20px;
+  }
+}

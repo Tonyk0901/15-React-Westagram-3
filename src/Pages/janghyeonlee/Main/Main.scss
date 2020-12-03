@@ -1,0 +1,39 @@
+@import "../reset.scss";
+.Main {
+  @media screen and (max-width: 945px) {
+    .main-right {
+      display: none;
+    }
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px + $nav-height;
+    width: $content-width;
+    margin: auto;
+  }
+  .main-left {
+    display: flex;
+    flex-direction: column;
+    width: 612px;
+    margin-right: 28px;
+  }
+  .main-right {
+    z-index: -1;
+    width: 295px;
+  }
+
+  .westa-border {
+    border: 1px solid $dark-gray;
+    border-radius: 3px;
+  }
+
+  .westa-feed-padding-x {
+    padding-right: $feed-padding;
+    padding-left: $feed-padding;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+}

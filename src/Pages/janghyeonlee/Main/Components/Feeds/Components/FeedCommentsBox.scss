@@ -1,0 +1,31 @@
+@import "../../../../reset.scss";
+.feed-comment-box {
+  .feed-comments {
+    margin-top: 7px;
+  }
+
+  .feed-upload-date {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    font-size: 11px;
+    color: $darker-gray;
+  }
+
+  form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border-top: 1px solid $normal-gray;
+    input {
+      border: none;
+      width: 550px;
+    }
+    button {
+      border: none;
+      background-color: white;
+    }
+  }
+}

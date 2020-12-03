@@ -1,0 +1,252 @@
+{
+  "feedsData": [
+    {
+      "key": 1,
+      "imgUrl": "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=3450&q=80",
+      "comments": [
+        { "id": 0, "key": 0, "userId": "jheyon", "comment": "cute dog!", "likesNum": 7, "liked": false },
+        { "id": 1, "key": 1, "userId": "lee", "comment": "미쳤다. 너무 귀엽다.", "likesNum": 1, "liked": true }
+      ]
+    },
+    {
+      "key": 2,
+      "imgUrl": "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1212&q=80",
+      "comments": [
+        { "id": 0, "key": 0, "userId": "아이유", "comment": "귀엽다.", "likesNum": 7, "liked": false },
+        { "id": 1, "key": 1, "userId": "비투비", "comment": "너무 귀엽다.", "likesNum": 1, "liked": false }
+      ]
+    },
+    {
+      "key": 3,
+      "imgUrl": "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1232&q=80",
+      "comments": [
+        { "id": 0, "key": 0, "userId": "dog_lover", "comment": "강아지가 최고지", "likesNum": 7, "liked": false },
+        { "id": 1, "key": 1, "userId": "cat_lover", "comment": "고양이가 더낫지;", "likesNum": 1, "liked": true }
+      ]
+    },
+    {
+      "key": 4,
+      "imgUrl": "https://images.unsplash.com/photo-1560743641-3914f2c45636?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80",
+      "comments": [
+        { "id": 0, "key": 0, "userId": "hellohello", "comment": "반갑습니다.", "likesNum": 77, "liked": false },
+        { "id": 1, "key": 1, "userId": "byebye", "comment": "ㅇㅇㅇㅇㅇㅇㅇㅇㅇ", "likesNum": 11, "liked": false }
+      ]
+    }
+  ],
+  "usersData": [
+    {
+      "key": 0,
+      "userId": "wecode",
+      "userIntro": "wecode!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 1,
+      "userId": "we",
+      "userIntro": "hello",
+      "imgUrl": ""
+    },
+    {
+      "key": 2,
+      "userId": "jang",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 3,
+      "userId": "jung",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 4,
+      "userId": "developer",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 5,
+      "userId": "devodevo",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 6,
+      "userId": "wework",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 7,
+      "userId": "code",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 8,
+      "userId": "codelover",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 9,
+      "userId": "back",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 10,
+      "userId": "backend",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 11,
+      "userId": "front",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 12,
+      "userId": "frontend",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 13,
+      "userId": "java",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 14,
+      "userId": "javascript",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 15,
+      "userId": "java developer",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 16,
+      "userId": "javascript",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 17,
+      "userId": "python",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 18,
+      "userId": "python lover",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 19,
+      "userId": "hello",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 20,
+      "userId": "hellgate",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 21,
+      "userId": "apple",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 22,
+      "userId": "apple juice",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 23,
+      "userId": "facebook",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 24,
+      "userId": "facehook",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 25,
+      "userId": "react",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 26,
+      "userId": "reactive",
+      "userIntro": "wecod!!",
+      "imgUrl": ""
+    },
+    {
+      "key": 27,
+      "userId": "chaehoon.q",
+      "userIntro": "나는 바보다",
+      "imgUrl": ""
+    },
+    {
+      "key": 28,
+      "userId": "sunghoon.q",
+      "userIntro": "나는 성훈",
+      "imgUrl": ""
+    },
+    {
+      "key": 29,
+      "userId": "soyoon",
+      "userIntro": "프론트핵고수",
+      "imgUrl": ""
+    }
+  ],
+  "storiesData": [
+    {
+      "key": 1,
+      "src": "images/janghyeonlee/youtube.png",
+      "alt": "youtube icon"
+    },
+    {
+      "key": 2,
+      "src": "images/janghyeonlee/instagram.png",
+      "alt": "instagram icon"
+    },
+    {
+      "key": 3,
+      "src": "images/janghyeonlee/facebook.png",
+      "alt": "facebook icon"
+    }
+  ],
+  "recommendUsersData": [
+    {
+      "key": 1,
+      "imgUrl": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=935&q=80",
+      "userId": "blue_00"
+    },
+    {
+      "key": 2,
+      "imgUrl": "https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+      "userId": "boom_99"
+    },
+    {
+      "key": 3,
+      "imgUrl": "https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "userId": "abcd_200"
+    }
+  ]
+}

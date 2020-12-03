@@ -1,0 +1,52 @@
+@import "../../../../reset.scss";
+.feed-content-box {
+  .feed-img-box {
+    width: 100%;
+    max-height: 800px;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+
+  .feed-social-box {
+    display: flex;
+    flex-direction: column;
+    .feed-social-icons-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 47px;
+    }
+
+    .feed-social-left-icons {
+      img {
+        margin-right: 15px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .feed-social-right-icons {
+      img {
+        width: 24px;
+      }
+    }
+
+    .feed-social-likes {
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+
+  .feed-description-box {
+    display: -webkit-box;
+    margin-top: 7px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    .feed-description-publisher-name {
+      font-weight: 600;
+    }
+  }
+}

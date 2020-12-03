@@ -1,0 +1,34 @@
+@import "../../../../../reset.scss";
+.single-comment-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0 2px 0;
+  word-wrap: break-word;
+
+  .comment-userid {
+    font-weight: 600;
+  }
+
+  .comment-side-info {
+    display: flex;
+    align-items: center;
+    .comment-heart-button {
+      margin: 0 3px 0 3px;
+      background-color: transparent;
+      border: none;
+      img {
+        margin: 0 3px 1px 3px;
+        width: 13px;
+        cursor: pointer;
+      }
+    }
+
+    .comment-delete-button {
+      font-size: 15px;
+      cursor: pointer;
+      width: 30px;
+      background-color: transparent;
+      border: none;
+    }
+  }
+}
