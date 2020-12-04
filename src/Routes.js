@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import LoginPark from './Pages/chaehoonpark/Login/Login';
-import MainPark from './Pages/chaehoonpark/Main/Main';
-import LoginLee from './Pages/janghyeonlee/Login/Login';
-import MainLee from './Pages/janghyeonlee/Main/Main';
-import LoginKim from './Pages/sunghoonkim/Login/Login';
-import MainKim from './Pages/sunghoonkim/Main/Main';
-import LoginLim from './Pages/daehoim/Login/Login';
-import MainLim from './Pages/daehoim/Main/Main';
-import LoginIm from './Pages/taejinlim/Login/Login';
-import MainIm from './Pages/taejinlim/Main/Main';
+import LoginPark from "./Pages/chaehoonpark/Login/Login";
+import MainPark from "./Pages/chaehoonpark/Main/Main";
+import LoginLee from "./Pages/janghyeonlee/Login/Login";
+import MainLee from "./Pages/janghyeonlee/Main/Main";
+import LoginKim from "./Pages/sunghoonkim/Login/Login";
+import MainKim from "./Pages/sunghoonkim/Main/Main";
+import LoginLim from "./Pages/taejinlim/Login/Login";
+import MainLim from "./Pages/taejinlim/Main/Main";
+import LoginIm from "./Pages/daehoim/Login/Login";
+import MainIm from "./Pages/daehoim/Main/Main";
 
 class Routes extends React.Component {
   render() {
@@ -30,9 +30,8 @@ class Routes extends React.Component {
           <Route exact path="/MainIm" component={MainIm} />
         </Switch>
       </Router>
-    )
+    );
   }
 }
-
 
 export default Routes;
