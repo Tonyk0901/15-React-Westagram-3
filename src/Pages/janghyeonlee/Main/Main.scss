@@ -5,23 +5,7 @@
       display: none;
     }
   }
-  main {
-    display: flex;
-    justify-content: center;
-    padding-top: 30px + $nav-height;
-    width: $content-width;
-    margin: auto;
-  }
-  .main-left {
-    display: flex;
-    flex-direction: column;
-    width: 612px;
-    margin-right: 28px;
-  }
-  .main-right {
-    z-index: -1;
-    width: 295px;
-  }
+  // common styles of main page
 
   .westa-border {
     border: 1px solid $dark-gray;
@@ -35,5 +19,23 @@
 
   button:hover {
     cursor: pointer;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px + $nav-height;
+    width: $content-width;
+    margin: auto;
+    .main-left {
+      display: flex;
+      flex-direction: column;
+      width: 612px;
+      margin-right: 28px;
+    }
+    .main-right {
+      z-index: -1;
+      width: 295px;
+    }
   }
 }

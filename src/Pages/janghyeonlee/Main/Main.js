@@ -9,7 +9,7 @@ class Main extends Component {
   render() {
     return (
       <>
-        <div class="Main">
+        <div className="Main">
           <Nav />
           <main>
             <section className="main-left">

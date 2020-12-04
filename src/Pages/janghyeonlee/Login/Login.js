@@ -65,8 +65,6 @@ class Login extends Component {
     return id.match(validIdRegExp) ? true : false;
   };
 
-  validateInput = () => {};
-
   handleInputChange = (e) => {
     const { name, value } = e.target;
     const { validateId, validatePw } = this;
@@ -80,10 +78,6 @@ class Login extends Component {
     this.setState({
       [name]: value,
     });
-  };
-
-  hello = () => {
-    console.log("hi!");
   };
 
   render() {

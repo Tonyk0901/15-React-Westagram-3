@@ -1,0 +1,23 @@
+@import "../../../reset.scss";
+
+.nav-profile-modal {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 230px;
+  z-index: 10;
+  top: 30px;
+  right: -15px;
+  background-color: white;
+  box-shadow: 0 0 8px $dark-gray;
+  border-radius: 6px;
+  div {
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+}

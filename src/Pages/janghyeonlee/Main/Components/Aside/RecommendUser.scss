@@ -1,0 +1,28 @@
+.aside-recommend-user-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .aside-recommend-user-info {
+    display: flex;
+  }
+  .aside-recommend-user-profile {
+    width: 32px;
+    height: 32px;
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+    }
+  }
+
+  .aside-recommend-user-text-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+  }
+
+  button {
+    color: black;
+  }
+}

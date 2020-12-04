@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import FilteredUserList from "./Components/FilteredUserList";
+import FilteredUserList from "./FilteredUserList";
+import ProfileModal from "./ProfileMoidal";
 import "./Nav.scss";
 
 class Nav extends Component {
@@ -28,9 +29,15 @@ class Nav extends Component {
     this.setState({ searchInput: e.target.value });
   };
 
+  closeModal = () => {
+    if (this.state.showNavUserModal) this.setState({ showNavUserModal: false });
+  };
+
   render() {
+    const { searchInput, usersData, showNavUserModal } = this.state;
     return (
       <nav>
+        <div className={`modal-container ${showNavUserModal ? "show" : ""}`} onClick={this.closeModal}></div>
         <ul className="nav-container">
           <li className="nav-logo">
             <img src="images/janghyeonlee/westagram.png" alt="westagram logo" />
@@ -44,9 +51,9 @@ class Nav extends Component {
             />
             <section
               className="nav-search-modal westa-border"
-              style={this.state.searchInput ? { display: "block" } : { display: "none" }}
+              style={searchInput ? { display: "block" } : { display: "none" }}
             >
-              <FilteredUserList usersData={this.state.usersData} keyword={this.state.searchInput} />
+              <FilteredUserList usersData={usersData} keyword={searchInput} />
             </section>
           </li>
           <li className="nav-icons">
@@ -59,29 +66,9 @@ class Nav extends Component {
                 className="nav-icon-profile"
                 src="images/janghyeonlee/my_profile.jpg"
                 alt="my profile"
-                onClick={() => this.setState({ showNavUserModal: !this.state.showNavUserModal })}
+                onClick={() => this.setState({ showNavUserModal: !showNavUserModal })}
               />
-              <section
-                className="nav-profile-modal"
-                style={this.state.showNavUserModal ? { display: "block" } : { display: "none" }}
-              >
-                <div className="nav-profile-modal-profile">
-                  <span>
-                    <i className="far fa-user-circle"></i> 프로필
-                  </span>
-                </div>
-                <div className="nav-profile-modal-saved">
-                  <span>
-                    <i className="far fa-bookmark"></i> 저장됨
-                  </span>
-                </div>
-                <div className="nav-profile modal-setting">
-                  <span>
-                    <i className="fas fa-cog"></i> 설정
-                  </span>
-                </div>
-                <div className="nav-profile-modal-logout">로그아웃</div>
-              </section>
+              <ProfileModal showNavUserModal={showNavUserModal} />
             </div>
           </li>
         </ul>

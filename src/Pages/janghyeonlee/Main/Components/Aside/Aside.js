@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import RecommendUser from "./RecommendUser";
 import "./Aside.scss";
 
 class Aside extends Component {
@@ -7,6 +8,7 @@ class Aside extends Component {
 
     this.state = {
       recommendUsersData: [],
+      footerData: [],
     };
   }
 
@@ -18,11 +20,23 @@ class Aside extends Component {
       .then((res) => {
         this.setState({
           recommendUsersData: res.recommendUsersData,
+          footerData: res.footerData,
         });
       });
   }
 
   render() {
+    const recommendUsers = this.state.recommendUsersData.map(({ key, imgUrl, userId }) => {
+      return <RecommendUser imgUrl={imgUrl} userId={userId} key={key} />;
+    });
+    const footerLinks = this.state.footerData.map((data, idx, arr) => {
+      return (
+        <span key={idx}>
+          <a href="/">{data}</a>
+          {arr.length === idx + 1 ? "" : " · "}
+        </span>
+      );
+    });
     return (
       <aside className="fixed-aside">
         <section className="aside-current-user-box">
@@ -42,11 +56,10 @@ class Aside extends Component {
             <p className="aside-recommend-for-user">회원님을 위한 추천</p>
             <button>모두 보기</button>
           </header>
+          {recommendUsers}
         </section>
         <footer>
-          <small>
-            소개 · 도움말 · 홍보 센터 · API · 채용 정보 · 개인정보처리방침 · 약관 · 위치 · 인기 계정 · 해시태그 · 언어
-          </small>
+          <small>{footerLinks}</small>
           <small>© 2020 WESTAGRAM FROM JHEYON</small>
         </footer>
       </aside>

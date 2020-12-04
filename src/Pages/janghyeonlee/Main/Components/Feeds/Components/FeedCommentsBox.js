@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Comment from "./Components/Comment";
+import Comment from "./Comment";
 import "./FeedCommentsBox.scss";
 
 class FeedCommentsBox extends Component {
@@ -9,20 +9,15 @@ class FeedCommentsBox extends Component {
     this.state = {
       comments: this.props.comments,
       inputComment: "",
-      deletedIds: [],
     };
   }
 
   onSubmitComment = (e) => {
     e.preventDefault();
-    const { inputComment, comments, deletedIds } = this.state;
-    if (!inputComment) {
-      // placeholder "빈 댓글은 올릴 수 없습니다."
-      return;
-    }
-    // 랜덤 키 생성 어떻게?
-    let newDeletedIds = deletedIds;
-    console.log(newDeletedIds);
+    const { inputComment, comments } = this.state;
+    if (!inputComment) return;
+
+    // unique한 key 어떻게 생성해야 할까
     const newComment = {
       id: comments.length,
       key: inputComment + new Date(),
@@ -31,10 +26,6 @@ class FeedCommentsBox extends Component {
       comment: inputComment,
       liked: false,
     };
-
-    if (!newDeletedIds) {
-      newComment.key = newDeletedIds.pop();
-    }
 
     const updatedComments = comments.concat(newComment);
 
@@ -54,12 +45,12 @@ class FeedCommentsBox extends Component {
   };
 
   removeComment = (id) => {
-    const { comments, deletedIds } = this.state;
+    const { comments } = this.state;
     let commentAfterRemoved = comments.filter((comment) => comment.id !== id);
 
     commentAfterRemoved = this.reOrderId(commentAfterRemoved);
 
-    this.setState({ comments: commentAfterRemoved, deletedIds: deletedIds.concat(id) });
+    this.setState({ comments: commentAfterRemoved });
   };
 
   toggleHeart = (id) => {
@@ -75,7 +66,6 @@ class FeedCommentsBox extends Component {
     });
 
     this.setState({ comments: commentsAfterHeartClicked });
-    console.log(id);
   };
 
   render() {

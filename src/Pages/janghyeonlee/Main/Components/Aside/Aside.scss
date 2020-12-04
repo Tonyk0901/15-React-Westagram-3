@@ -1,4 +1,4 @@
-@import "../../Main.scss";
+@import "../../../reset.scss";
 .fixed-aside {
   display: flex;
   flex-direction: column;
@@ -7,7 +7,6 @@
   padding-top: 10px;
 
   .aside-current-user-box,
-  .aside-recommend-user-box,
   .aside-recommend-title-box {
     display: flex;
     justify-content: space-between;
@@ -27,6 +26,17 @@
     }
   }
 
+  .aside-current-user-info {
+    display: flex;
+  }
+
+  .aside-current-user-text-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+  }
+
   .aside-recommend-box {
     margin-bottom: 30px;
     header {
@@ -38,18 +48,6 @@
     .aside-recommend-user-box {
       height: 50px;
     }
-  }
-
-  .aside-current-user-info,
-  .aside-recommend-user-info {
-    display: flex;
-  }
-
-  .aside-current-user-text-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 15px;
   }
 
   button {
@@ -64,13 +62,6 @@
     color: $darker-gray;
     font-size: 14px;
     font-weight: 600;
-  }
-
-  .aside-recommend-user-text-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 15px;
   }
 
   .aside-current-user-id,
@@ -94,20 +85,16 @@
     border-radius: 100%;
   }
 
-  .aside-recommend-user-profile {
-    width: 32px;
-    height: 32px;
-    img {
-      width: 32px;
-      height: 32px;
-      border-radius: 100%;
-    }
-  }
-
   small {
     display: block;
     margin-bottom: 15px;
     color: $darker-gray;
     font-size: 11.5px;
+    span {
+      font-size: 11.5px;
+      a {
+        color: $darker-gray;
+      }
+    }
   }
 }
