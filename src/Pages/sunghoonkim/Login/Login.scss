@@ -45,13 +45,21 @@
     }
 
     .login-form-button {
+      @extend %flex-center;
       margin-top: 20px;
       background-color: #c4e1fc;
       border: $common-border-style;
       border-width: 1px;
       font-size: 25px;
       color: white;
+      text-decoration: none;
       cursor: pointer;
+      &.not-active {
+        pointer-events: none;
+      }
+      &.active {
+        background-color: #0095f6;
+      }
     }
   }
 

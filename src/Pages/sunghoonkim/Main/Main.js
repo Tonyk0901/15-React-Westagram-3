@@ -15,12 +15,6 @@ import { faSearch as fasSearch } from '@fortawesome/free-solid-svg-icons';
 import './Main.scss';
 
 class Main extends React.Component {
-  componentDidMount() {
-    const { loggedIn } = this.props.location;
-    if (!loggedIn) {
-      this.props.history.push("/LoginKim");
-    }
-  }
   render() {
     return (
       <div className="MainKim">
