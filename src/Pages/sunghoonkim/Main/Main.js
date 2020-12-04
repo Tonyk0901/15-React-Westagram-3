@@ -1,21 +1,54 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react";
+import Comment from "./Components/Comment.js";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Fontawesome Icons
-import { faCompass as farCompass } from '@fortawesome/free-regular-svg-icons';
-import { faUser as farUser } from '@fortawesome/free-regular-svg-icons';
-import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
-import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
-import { faCircle as fasCircle } from '@fortawesome/free-solid-svg-icons';
-import { faCommentDots as farCircle } from '@fortawesome/free-regular-svg-icons';
-import { faCaretSquareUp as farCaretSquareUp } from '@fortawesome/free-regular-svg-icons';
-import { faBookmark as farBookmark } from '@fortawesome/free-regular-svg-icons';
-import { faSearch as fasSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCompass as farCompass } from "@fortawesome/free-regular-svg-icons";
+import { faUser as farUser } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
+import { faCircle as fasCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCommentDots as farCircle } from "@fortawesome/free-regular-svg-icons";
+import { faCaretSquareUp as farCaretSquareUp } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faSearch as fasSearch } from "@fortawesome/free-solid-svg-icons";
 
-import './Main.scss';
+import "./Main.scss";
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      commentInputValue: "",
+      comments: [{ id: 0, usrId: "sunghoon__kim", comment: "haha", timeCommentPosted: new Date(2020, 11, 2) }],
+      timeFeedPosted: new Date(2020, 10, 30),
+    };
+  }
+
+  handleClick = (event) => {
+    event.preventDefault();
+    const { comments, commentInputValue } = this.state;
+    comments.push({
+      id: comments.length,
+      usrId: "younggwang__kim",
+      comment: commentInputValue,
+      timeCommentPosted: new Date(),
+    });
+    this.setState({
+      comments,
+      commentInputValue: "",
+    });
+  };
+
+  updateComment = (event) => {
+    this.setState({
+      commentInputValue: event.target.value,
+    });
+  };
+
   render() {
+    const { id, commentInputValue, comments, timeFeedPosted } = this.state;
+
     return (
       <div className="MainKim">
         <nav>
@@ -85,20 +118,30 @@ class Main extends React.Component {
                 <div>
                   <strong>dlwlrma</strong>
                   <span>&nbsp;5th mini album&nbsp;</span>
-                  <Link to='/MainKim' className="delete-hyper-link">
+                  <Link to="/MainKim" className="delete-hyper-link">
                     <span className="hashTag">#Lovepoem</span>
                   </Link>
-                  <span className="light-font add-cursor">
-                    &nbsp;더 보기
-                  </span>
+                  <span className="light-font add-cursor">&nbsp;더 보기</span>
                 </div>
               </section>
               <section className="feed-comments">
                 <div className="feed-comment">
+                  <Comment key={id} comments={comments} timeFeedPosted={timeFeedPosted} />
                 </div>
                 <form className="feed-comment-input">
-                  <input className="feed-comment-input-content" placeholder="댓글 달기..." />
-                  <button className="feed-comment-input-button">게시</button>
+                  <input
+                    className="feed-comment-input-content"
+                    onChange={this.updateComment}
+                    placeholder="댓글 달기..."
+                    value={commentInputValue}
+                  />
+                  <button
+                    className="feed-comment-input-button"
+                    onClick={this.handleClick}
+                    disabled={commentInputValue ? false : true}
+                  >
+                    게시
+                  </button>
                 </form>
               </section>
             </article>
@@ -187,22 +230,34 @@ class Main extends React.Component {
             <footer className="main-right-footers">
               <ul>
                 <li>
-                  <a href="/" className="light-font delete-hyper-link">Instagram정보&nbsp;·&nbsp;</a>
+                  <a href="/" className="light-font delete-hyper-link">
+                    Instagram정보&nbsp;·&nbsp;
+                  </a>
                 </li>
                 <li>
-                  <a href="/" className="light-font delete-hyper-link">지원&nbsp;·&nbsp;</a>
+                  <a href="/" className="light-font delete-hyper-link">
+                    지원&nbsp;·&nbsp;
+                  </a>
                 </li>
                 <li>
-                  <a href="/" className="light-font delete-hyper-link">홍보센터&nbsp;·&nbsp;</a>
+                  <a href="/" className="light-font delete-hyper-link">
+                    홍보센터&nbsp;·&nbsp;
+                  </a>
                 </li>
                 <li>
-                  <a href="/" className="light-font delete-hyper-link">API&nbsp;·&nbsp;</a>
+                  <a href="/" className="light-font delete-hyper-link">
+                    API&nbsp;·&nbsp;
+                  </a>
                 </li>
                 <li>
-                  <a href="/" className="light-font delete-hyper-link">채용정보&nbsp;·&nbsp;</a>
+                  <a href="/" className="light-font delete-hyper-link">
+                    채용정보&nbsp;·&nbsp;
+                  </a>
                 </li>
                 <li>
-                  <a href="/" className="light-font delete-hyper-link">개인정보처리방침&nbsp;</a>
+                  <a href="/" className="light-font delete-hyper-link">
+                    개인정보처리방침&nbsp;
+                  </a>
                 </li>
               </ul>
               <span className="light-font">© 2019 INSTAGRAM</span>
@@ -210,8 +265,7 @@ class Main extends React.Component {
           </div>
         </main>
       </div>
-    )
-
+    );
   }
 }
 

@@ -17,9 +17,10 @@ class Login extends React.Component {
       [id]: value
     });
   }
-  rnseo
 
   render() {
+    console.log("render happened!");
+    console.log(this.state);
     const { usrId, usrPw } = this.state;
     const inputValid = (usrId.includes('@') && usrPw.length >= 5);
 

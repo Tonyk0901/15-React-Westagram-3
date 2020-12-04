@@ -1,0 +1,11 @@
+@import "../../Common.scss";
+
+.CommentKim {
+  @extend %flex-align-center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  span {
+    margin-left: 5px;
+  }
+}
