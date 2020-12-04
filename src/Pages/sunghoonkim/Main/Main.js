@@ -20,7 +20,7 @@ class Main extends React.Component {
     super();
     this.state = {
       commentInputValue: "",
-      comments: [{ id: 0, usrId: "sunghoon__kim", comment: "haha", timeCommentPosted: new Date(2020, 11, 2) }],
+      comments: [{ id: 0, usrId: "sunghoon__kim", comment: "눈나 나주겅ㅠㅠ", timeCommentPosted: new Date(2020, 11, 2) }],
       timeFeedPosted: new Date(2020, 10, 30),
     };
   }
@@ -30,7 +30,7 @@ class Main extends React.Component {
     const { comments, commentInputValue } = this.state;
     comments.push({
       id: comments.length,
-      usrId: "younggwang__kim",
+      usrId: "sunghoon__kim",
       comment: commentInputValue,
       timeCommentPosted: new Date(),
     });
