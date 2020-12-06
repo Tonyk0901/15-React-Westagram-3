@@ -33,10 +33,6 @@ class FeedCommentsBox extends Component {
     this.setState({ comments: updatedComments, inputComment: "" });
   };
 
-  handleCommentInputChange = (e) => {
-    this.setState({ inputComment: e.target.value });
-  };
-
   reOrderId = (arr) => {
     return arr.map((item, idx) => {
       item.id = idx;
@@ -69,22 +65,23 @@ class FeedCommentsBox extends Component {
   };
 
   render() {
-    const commentsList = this.state.comments.map(({ id, key, userId, comment, likesNum, liked }) => (
-      <Comment
-        id={id}
-        key={key}
-        userId={userId}
-        comment={comment}
-        likesNum={likesNum}
-        liked={liked}
-        onRemove={this.removeComment}
-        toggleHeart={this.toggleHeart}
-      />
-    ));
     return (
       <div className="feed-comment-box">
         <section className="feed-comments westa-feed-padding-x">
-          <ul>{commentsList}</ul>
+          <ul>
+            {this.state.comments.map(({ id, key, userId, comment, likesNum, liked }) => (
+              <Comment
+                id={id}
+                key={key}
+                userId={userId}
+                comment={comment}
+                likesNum={likesNum}
+                liked={liked}
+                onRemove={this.removeComment}
+                toggleHeart={this.toggleHeart}
+              />
+            ))}
+          </ul>
         </section>
         <p className="feed-upload-date westa-feed-padding-x">11월 24일</p>
         <form onSubmit={this.onSubmitComment} className="feed-comment-input-box westa-feed-padding-x">
@@ -93,7 +90,7 @@ class FeedCommentsBox extends Component {
             type="text"
             placeholder="댓글 달기..."
             value={this.state.inputComment}
-            onChange={this.handleCommentInputChange}
+            onChange={(e) => this.setState({ inputComment: e.target.value })}
           />
           <button className="feed-comment-upload-button" type="submit">
             게시

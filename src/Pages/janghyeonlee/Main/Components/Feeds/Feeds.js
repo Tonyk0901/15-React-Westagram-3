@@ -27,19 +27,19 @@ class Feeds extends Component {
     // 여기서 받아온 comments로 이 컴포넌트의 state를 바꾸어 주어야 함.
   };
 
-  generateFeeds = () => {
-    return this.state.feedData.map((data) => (
-      <Feed
-        key={data.key}
-        feedImgSrc={data.imgUrl}
-        comments={data.comments}
-        onCommentsChange={this.handleCommentChange}
-      />
-    ));
-  };
-
   render() {
-    return <>{this.generateFeeds()}</>;
+    return (
+      <>
+        {this.state.feedData.map((data) => (
+          <Feed
+            key={data.key}
+            feedImgSrc={data.imgUrl}
+            comments={data.comments}
+            onCommentsChange={this.handleCommentChange}
+          />
+        ))}
+      </>
+    );
   }
 }
 

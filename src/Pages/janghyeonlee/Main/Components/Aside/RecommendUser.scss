@@ -1,28 +1,35 @@
-.aside-recommend-user-box {
+@import "../../../reset.scss";
+.recommend-user-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .aside-recommend-user-info {
+  height: 50px;
+
+  .user-info {
     display: flex;
-  }
-  .aside-recommend-user-profile {
-    width: 32px;
-    height: 32px;
-    img {
+    .profile {
       width: 32px;
       height: 32px;
-      border-radius: 100%;
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+      }
     }
-  }
-
-  .aside-recommend-user-text-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 15px;
-  }
-
-  button {
-    color: black;
+    .text-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 15px;
+      .id {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .name {
+        margin-top: 2px;
+        color: $darker-gray;
+        font-size: 13px;
+      }
+    }
   }
 }

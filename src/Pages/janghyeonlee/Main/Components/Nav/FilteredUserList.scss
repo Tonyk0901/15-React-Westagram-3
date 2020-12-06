@@ -1,8 +1,13 @@
 @import "../../../reset.scss";
 .user-in-nav-search-modal {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 30px;
+  height: 40px;
   border-bottom: 1px solid $dark-gray;
+  .intro {
+    color: $darker-gray;
+    font-size: 12px;
+  }
 }

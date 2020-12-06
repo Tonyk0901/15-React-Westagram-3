@@ -6,50 +6,6 @@
   width: 295px;
   padding-top: 10px;
 
-  .aside-current-user-box,
-  .aside-recommend-title-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .aside-current-user-box {
-    height: 80px;
-    .aside-current-user-profile {
-      width: 58px;
-      height: 58px;
-      img {
-        width: 56px;
-        height: 56px;
-        border-radius: 100%;
-      }
-    }
-  }
-
-  .aside-current-user-info {
-    display: flex;
-  }
-
-  .aside-current-user-text-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 15px;
-  }
-
-  .aside-recommend-box {
-    margin-bottom: 30px;
-    header {
-      height: 40px;
-    }
-    button {
-      color: black;
-    }
-    .aside-recommend-user-box {
-      height: 50px;
-    }
-  }
-
   button {
     background-color: transparent;
     border: none;
@@ -58,31 +14,59 @@
     font-weight: 600;
   }
 
-  .aside-recommend-for-user {
-    color: $darker-gray;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .aside-current-user-id,
-  .aside-recommend-user-id {
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .aside-current-user-name,
-  .aside-recommend-user-name {
-    margin-top: 2px;
-    color: $darker-gray;
-    font-size: 13px;
-  }
-
-  .aside-current-user-profile,
-  .aside-recommend-user-profile {
+  .current-user-box {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    border-radius: 100%;
+    height: 80px;
+    .user-info {
+      display: flex;
+      .profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 58px;
+        height: 58px;
+        img {
+          width: 56px;
+          height: 56px;
+          border-radius: 100%;
+        }
+      }
+      .text-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 15px;
+        .id {
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .name {
+          margin-top: 2px;
+          color: $darker-gray;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .recommend-box {
+    margin-bottom: 30px;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      p {
+        color: $darker-gray;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .show-all {
+        color: black;
+      }
+    }
   }
 
   small {

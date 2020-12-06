@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import "./Story.scss";
 
 class Story extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     const { src, alt } = this.props;
     return (

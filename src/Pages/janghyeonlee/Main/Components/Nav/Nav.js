@@ -49,10 +49,7 @@ class Nav extends Component {
               placeholder="검색"
               onChange={this.handleInputChange}
             />
-            <section
-              className="nav-search-modal westa-border"
-              style={searchInput ? { display: "block" } : { display: "none" }}
-            >
+            <section className={`nav-search-modal westa-border ${searchInput ? "show" : ""}`}>
               <FilteredUserList usersData={usersData} keyword={searchInput} />
             </section>
           </li>
@@ -63,7 +60,7 @@ class Nav extends Component {
             <img className="nav-icon" src="images/janghyeonlee/heart.png" alt="nav icon heart" />
             <div className="nav-icon">
               <img
-                className="nav-icon-profile"
+                className="profile"
                 src="images/janghyeonlee/my_profile.jpg"
                 alt="my profile"
                 onClick={() => this.setState({ showNavUserModal: !showNavUserModal })}

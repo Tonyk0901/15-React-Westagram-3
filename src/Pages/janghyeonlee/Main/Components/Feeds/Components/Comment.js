@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import "./Comment.scss";
 
 class Comment extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   handleRemoveButtonClick = (e) => {
     this.props.onRemove(this.props.id);
   };
