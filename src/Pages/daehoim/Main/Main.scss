@@ -1,0 +1,388 @@
+@charset 'utf-8';
+
+/*          nav bar           */
+.nav_bar {
+    width: 100%;
+    height: 54px;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+
+    div {
+        width: 975px;
+        height: 54;
+        display: flex;
+        align-items: center;
+
+        .nav_logos {
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+
+            img {
+                width: 30px;
+                border-right: 1px solid black;
+                padding: 3px 12px 3px 0px;
+                margin-right: 12px;
+            }
+
+            span {
+                font-family: Lobster Two;
+                font-size: 23px;
+            }
+        }
+
+        .nav_search {
+
+            height: 28px;
+            display: flex;
+            align-items: center;
+
+            input {
+                width: 215px;
+                height: 28px;
+                text-align: center;
+                font-size: 14px;
+                background-color: #FAFAFA;
+                padding: 7px;
+                border-radius: 3px;
+                border: 1px solid var(--border-color);
+            }
+        }
+
+        .nav_more {
+            width: 260px;
+            height: 22px;
+            padding-right: 20px;
+            display: flex;
+            justify-content: space-between;
+
+            img {
+                width: 22px;
+            }
+        }
+    }
+}
+
+
+/*          피드 박스           */
+
+.main_container {
+    width: 100%;
+    position: absolute;
+    margin: 54px auto;
+    display: flex;
+    justify-content: center;
+
+    .feed_box {
+        width: 616px;
+        margin: 30px 28px 0px 0px;
+        border: 1px solid var(--border-color);
+
+        /*          피드 헤더           */
+        .Feed {
+            height: 60px;
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+
+            .user_img {
+                width: 32px;
+                height: 32px;
+                margin-right: 10px;
+            }
+
+            div {
+                span {
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+
+                p {
+                    font-size: 12px;
+                    padding: 1px 0;
+                    margin: 0;
+                }
+            }
+
+            .more {
+                width: 15px;
+                margin-left: 70%;
+            }
+        }
+
+        .feed_img_container {
+            img {
+                width: 614px;
+            }
+        }
+
+        /*          피드 이미지           */
+        .feed_content {
+            display: flex;
+            flex-direction: column;
+            padding: 4px 7px 0px 7px;
+
+            .feed_icons {
+                display: flex;
+                justify-content: space-between;
+
+                .feed_icon {
+                    width: 35px;
+                    border: none;
+                    padding: 5px;
+                    margin-right: 5px;
+                    background-color: white;
+                    outline: none;
+                }
+            }
+
+            .who_liked {
+                padding: 0 5px;
+
+                p {
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                }
+            }
+
+            .feed_description {
+                padding: 0 5px;
+
+                .feedUserID {
+                    font-weight: bold;
+                }
+
+                .more_comment {
+                    color: var(--description-color);
+                }
+            }
+        }
+
+        .Comment {
+            padding: 0 12px;
+
+            .comment_section {
+
+
+                .comments {
+                    padding: 0;
+                    list-style-type: none;
+                    margin: 2px 0 10px 0;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+
+                        div {
+
+                            .commentUserID {
+                                font-weight: bold;
+                                margin-right: 4px;
+                            }
+                        }
+
+                        div {
+                            .like_button {
+                                background-color: white;
+                                border: none;
+                                outline: none;
+
+                                img {
+                                    width: 12px;
+                                }
+                            }
+
+                            .remove_button {
+                                background-color: white;
+                                border: none;
+                                outline: none;
+
+                                img {
+                                    width: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            .updated_time {
+                color: #999999;
+                font-size: 11px;
+            }
+        }
+
+        /*          댓글 입력창           */
+        .AddComment {
+            height: 56px;
+            padding: 14px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 10px;
+            display: flex;
+
+            input {
+                width: 100%;
+                border: 0;
+                font-size: 14px;
+                outline: none;
+            }
+
+            .submit_comment {
+                width: 40px;
+                border: 0;
+                color: #0095F6;
+                background-color: white;
+                font-size: 14px;
+                outline: none;
+
+                &:disabled {
+                    color: #C0E0FD;
+                }
+            }
+        }
+
+
+    }
+
+
+    /*          aside           */
+    .main_right {
+        width: 293px;
+        margin-top: 30px;
+
+        .my_profile {
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+
+            .my_profile_picture {
+                width: 56px;
+                height: 56px;
+                border-radius: 30px;
+            }
+
+            .profile {
+                margin-right: 110px;
+
+                .myID {
+                    padding: 1px;
+                    font-weight: 800;
+                }
+
+                .myName {
+                    padding: 1px;
+                    color: var(--description-color);
+                }
+
+            }
+
+            .switchID {
+                color: var(--follow-color);
+                font-size: 13px;
+            }
+        }
+
+        /*          추천           */
+        .recommend {
+            margin: 20px 0;
+
+
+            .recommendationForYou {
+                display: flex;
+                justify-content: space-between;
+
+                p {
+                    color: #8F8F8F;
+                    font-weight: bold;
+                }
+
+                .seeAll {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .recommend_user {
+            list-style-type: none;
+            padding-left: 0;
+
+            .userNum {
+                margin-bottom: 8px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .reco_user_profile {
+                    display: flex;
+
+                    .recommend_user_picture {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 30px;
+                    }
+
+                    div {
+                        .userID {
+                            font-weight: bold;
+                            padding: 1px;
+                            margin-left: 8px;
+                        }
+
+                        .follow_desc {
+                            font-size: 12px;
+                            color: var(--description-color);
+                            padding: 1px;
+                            margin-left: 8px;
+                        }
+                    }
+                }
+
+                .follow {
+                    color: var(--follow-color);
+                    font-size: 13px;
+                }
+            }
+        }
+
+        /*          footer           */
+        .foot {
+            margin-top: 30px;
+            height: 35px;
+
+            ul {
+                padding-left: 0;
+                font-size: 10.5px;
+                margin-bottom: 11px;
+
+                li {
+                    color: #CACACA;
+                    display: inline-block;
+                    white-space: pre;
+                    margin-bottom: 5px;
+
+                    &:after {
+                        content: "  \00b7  ";
+                    }
+
+                    &:last-child:after {
+                        content: "";
+                    }
+                }
+            }
+
+            p {
+                font-size: 11px;
+                color: #CACACA;
+            }
+        }
+    }
+}

@@ -24,7 +24,6 @@ class LoginIm extends Component {
   };
 
   render() {
-    console.log("id", this.state.id, "pw", this.state.pw);
     const { id, pw } = this.state;
     let activateBtn = id.includes("@") && pw.length >= 5;
     return (
