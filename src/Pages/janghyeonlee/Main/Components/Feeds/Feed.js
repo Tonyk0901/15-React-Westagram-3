@@ -10,7 +10,11 @@ class Feed extends Component {
       <article className="feed-box westa-border">
         <FeedHeader />
         <FeedContent feedImgSrc={this.props.feedImgSrc} />
-        <FeedCommentsBox comments={this.props.comments} onCommentsChange={this.props.onCommentsChange} />
+        <FeedCommentsBox
+          comments={this.props.comments}
+          onCommentsChange={this.props.onCommentsChange}
+          id={this.props.id}
+        />
       </article>
     );
   }

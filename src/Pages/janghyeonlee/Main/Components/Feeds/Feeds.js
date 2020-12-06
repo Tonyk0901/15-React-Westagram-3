@@ -6,7 +6,7 @@ class Feeds extends Component {
     super(props);
 
     this.state = {
-      feedData: [],
+      feedsData: [],
     };
   }
 
@@ -17,21 +17,29 @@ class Feeds extends Component {
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          feedData: res.feedsData,
+          feedsData: res.feedsData,
         });
       });
   }
 
-  handleCommentChange = (comments) => {
-    // comments 정상적으로 받아지고 있음.
-    // 여기서 받아온 comments로 이 컴포넌트의 state를 바꾸어 주어야 함.
+  handleCommentChange = (comments, key) => {
+    console.log(key);
+    //console.log(comments);
+    const newFeedsData = this.state.feedsData.map((feed) => {
+      if (feed.key === key) feed.comments = comments;
+      return feed;
+    });
+
+    console.log(newFeedsData);
+    this.setState({ feedsData: newFeedsData });
   };
 
   render() {
     return (
       <>
-        {this.state.feedData.map((data) => (
+        {this.state.feedsData.map((data) => (
           <Feed
+            id={data.key}
             key={data.key}
             feedImgSrc={data.imgUrl}
             comments={data.comments}

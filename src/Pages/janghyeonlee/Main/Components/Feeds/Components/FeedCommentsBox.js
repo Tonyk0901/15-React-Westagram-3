@@ -7,14 +7,14 @@ class FeedCommentsBox extends Component {
     super(props);
 
     this.state = {
-      comments: this.props.comments,
       inputComment: "",
     };
   }
 
   onSubmitComment = (e) => {
     e.preventDefault();
-    const { inputComment, comments } = this.state;
+    const { inputComment } = this.state;
+    const { comments } = this.props;
     if (!inputComment) return;
 
     // unique한 key 어떻게 생성해야 할까
@@ -29,8 +29,8 @@ class FeedCommentsBox extends Component {
 
     const updatedComments = comments.concat(newComment);
 
-    this.props.onCommentsChange(updatedComments);
-    this.setState({ comments: updatedComments, inputComment: "" });
+    this.props.onCommentsChange(updatedComments, this.props.id);
+    this.setState({ inputComment: "" });
   };
 
   reOrderId = (arr) => {
@@ -41,16 +41,16 @@ class FeedCommentsBox extends Component {
   };
 
   removeComment = (id) => {
-    const { comments } = this.state;
+    const { comments } = this.props;
     let commentAfterRemoved = comments.filter((comment) => comment.id !== id);
 
     commentAfterRemoved = this.reOrderId(commentAfterRemoved);
 
-    this.setState({ comments: commentAfterRemoved });
+    this.props.onCommentsChange(commentAfterRemoved, this.props.id);
   };
 
   toggleHeart = (id) => {
-    const comments = this.state.comments;
+    const comments = this.props.comments;
     let commentsAfterHeartClicked = comments.map((comment) => {
       let updatedComment = comment;
       if (comment.id === id) {
@@ -61,7 +61,7 @@ class FeedCommentsBox extends Component {
       return updatedComment;
     });
 
-    this.setState({ comments: commentsAfterHeartClicked });
+    this.props.onCommentsChange(commentsAfterHeartClicked, this.props.key);
   };
 
   render() {
@@ -69,7 +69,7 @@ class FeedCommentsBox extends Component {
       <div className="feed-comment-box">
         <section className="feed-comments westa-feed-padding-x">
           <ul>
-            {this.state.comments.map(({ id, key, userId, comment, likesNum, liked }) => (
+            {this.props.comments.map(({ id, key, userId, comment, likesNum, liked }) => (
               <Comment
                 id={id}
                 key={key}
