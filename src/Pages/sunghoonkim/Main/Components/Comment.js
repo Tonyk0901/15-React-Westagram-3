@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 
 import "./Comment.scss";
 
@@ -12,38 +10,31 @@ class Comment extends React.Component {
     }
   }
 
-  componentDidMount() {
-    const { comments } = this.props;
-    this.setState({
-      comments
-    })
+  handleDelete = (event) => {
+    this.props.handleDelete(event.target.id);
+  }
+
+  handleLike = (event) => {
+    this.props.handleLike(event.target.id);
   }
 
   render() {
-    const { comments } = this.state;
+    const { userId, comment, id, liked } = this.props;
     return (
-      <>
-        {comments.map((element, index) => {
-          return (
-            <div key={index}>
-              <section className="CommentKim">
-                <div className="comment-column">
-                  <strong>
-                    {element.usrId}
-                  </strong>
-                  <span>
-                    {element.comment}
-                  </span>
-                </div>
-                <div className="comment-column">
-                  <FontAwesomeIcon className="faIcon" icon={farHeart} />
-                </div>
-              </section>
-            </div>
-          )
-        })
-        }
-      </>
+      <section className="CommentKim">
+        <div className="comment-column">
+          <strong>
+            {userId}
+          </strong>
+          <span>
+            {comment}
+          </span>
+        </div>
+        <div className="comment-column">
+          <img src="images/sunghoonkim/deleteBtn.svg" id={id} className="faIcon add-cursor" onClick={this.handleDelete} alt="delete" />
+          <img src={liked ? "images/sunghoonkim/heartLiked.svg" : "images/sunghoonkim/heartNotLiked.svg"} id={id} className="faIcon add-cursor" onClick={this.handleLike} alt="like" />
+        </div>
+      </section>
     );
   }
 }

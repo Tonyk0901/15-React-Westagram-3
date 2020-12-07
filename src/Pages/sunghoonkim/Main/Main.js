@@ -20,7 +20,7 @@ class Main extends React.Component {
     super();
     this.state = {
       commentInputValue: "",
-      comments: [{ id: 0, usrId: "sunghoon__kim", comment: "눈나 나주겅ㅠㅠ", timeCommentPosted: new Date(2020, 11, 2) }],
+      comments: [],
       timeFeedPosted: new Date(2020, 10, 30),
     };
   }
@@ -29,35 +29,59 @@ class Main extends React.Component {
     event.preventDefault();
     const { comments, commentInputValue } = this.state;
     comments.push({
-      id: comments.length,
+      id: Date.now(),
       usrId: "sunghoon__kim",
       comment: commentInputValue,
-      timeCommentPosted: new Date(),
+      liked: false,
     });
     this.setState({
       comments,
       commentInputValue: "",
     });
-  };
+  }
 
   updateComment = (event) => {
     this.setState({
       commentInputValue: event.target.value,
     });
-  };
+  }
+
+  handleDelete = (number) => {
+    number = Number(number);
+    const stateCopy = [...this.state.comments];
+    const newCopy = stateCopy.filter((element) => {
+      return (element.id !== number);
+    });
+
+    this.setState({
+      comments: newCopy,
+    });
+  }
+
+  handleLike = (number) => {
+    number = Number(number);
+    const stateCopy = [...this.state.comments];
+    for (let element of stateCopy) {
+      if (element.id === number) {
+        element.liked = element.liked ? false : true;
+      }
+    }
+    this.setState({
+      comments: stateCopy,
+    });
+  }
 
   render() {
-    const { id, commentInputValue, comments, timeFeedPosted } = this.state;
-
+    const { commentInputValue, comments } = this.state;
     return (
       <div className="MainKim">
         <nav>
           <div className="nav-wrapper">
             <div className="nav-logos">
-              <a className="delete-hyper-link" href="/">
+              <Link className="delete-hyper-link" href="/MainKim">
                 <img src="images/sunghoonkim/insta_logo.svg" alt="instagram-logo" />
                 <span>Westagram</span>
-              </a>
+              </Link>
             </div>
             <div className="nav-input-container">
               <FontAwesomeIcon className="faIcon" icon={fasSearch} />
@@ -102,7 +126,8 @@ class Main extends React.Component {
                   <FontAwesomeIcon className="faIcon" icon={farCaretSquareUp} />
                 </div>
                 <div className="feed-buttons-column">
-                  <FontAwesomeIcon className="faIcon" icon={farBookmark} />
+                  <img src="images/sunghoonkim/bookmarkBtn.svg" alt="bookmark" />
+                  {/* <FontAwesomeIcon className="faIcon" icon={farBookmark} /> */}
                 </div>
               </section>
               <section className="feed-likes">
@@ -115,9 +140,11 @@ class Main extends React.Component {
                 </span>
               </section>
               <section className="feed-contents">
-                <div>
+                <div className="feed-content">
                   <strong>dlwlrma</strong>
-                  <span>&nbsp;5th mini album&nbsp;</span>
+                  <p>
+                    asdfasdfsadfjasdlfasdkjfhasdkjfhdsfhasdlkjhdsfj;sadjf;asdfjk;aldsjka;lsdfkj;alsdfk;lasdf;lasdfk;lasdjf;lasdjk;lasdkj;lsadjkf;lasdjkf;lasdjf;lasdkjf;lasdjf;lasdkjf;alsdjkf;alsdjkf;alsdfk
+                  </p>
                   <Link to="/MainKim" className="delete-hyper-link">
                     <span className="hashTag">#Lovepoem</span>
                   </Link>
@@ -126,7 +153,9 @@ class Main extends React.Component {
               </section>
               <section className="feed-comments">
                 <div className="feed-comment">
-                  <Comment key={id} comments={comments} timeFeedPosted={timeFeedPosted} />
+                  {comments.map((element, index) => {
+                    return (<Comment key={index} liked={element.liked} id={element.id} userId={element.usrId} comment={element.comment} handleLike={this.handleLike} handleDelete={this.handleDelete} />)
+                  })}
                 </div>
                 <form className="feed-comment-input">
                   <input

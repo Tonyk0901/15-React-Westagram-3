@@ -4,8 +4,18 @@
   @extend %flex-align-center;
   justify-content: space-between;
   margin-bottom: 10px;
-
-  span {
-    margin-left: 5px;
+  .comment-column {
+    span {
+      margin-left: 5px;
+    }
+    img {
+      width: 20px;
+    }
+    .faIcon {
+      margin: 0 0 0 6px;
+      font-size: 20px;
+      font-weight: bold;
+      opacity: 0.7;
+    }
   }
 }
