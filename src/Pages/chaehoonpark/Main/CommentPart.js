@@ -7,26 +7,38 @@ class CommentPart extends React.Component {
 
     this.state = {
       comments: [
-        { id: 0, username: "chaehoon.p", text: " 고냥이 발바닥 쭙쭙" },
-        { id: 1, username: "jhyeon", text: " 고양이보단 개" },
-        { id: 2, username: "chaehoon.p", text: " 오반데,," },
+        { id: Math.random() * (10 - 1) + 1, username: "chaehoon.p", text: " 고냥이 발바닥 쭙쭙" },
+        { id: Math.random() * (10 - 1) + 1, username: "jhyeon_300", text: " 고양이보단 개" },
+        { id: Math.random() * (10 - 1) + 1, username: "chaehoon.p", text: " 이건 아니지,," },
       ],
     };
   }
 
-  AddingComment = (username, text) => {
+  addingComment = (username, text) => {
     const newComments = this.state.comments;
-    console.log("AddingComment activated");
+    console.log("addingComment activated");
 
-    newComments.push({ id: this.state.comments.length, username, text });
+    newComments.push({ id: Math.random() * (10 - 1) + 1, username, text });
 
-    console.log(newComments);
+    this.setState(
+      {
+        comments: newComments,
+      },
+      console.log(this.state.comments),
+    );
+  };
 
+  subtractingComment = (e) => {
+    e.preventDefault();
+    console.log("subtractingComment activated");
+    const comments = this.state.comments;
+    console.log(e.target.id);
+
+    const result = comments.filter((comment) => comment.id !== Number(e.target.id));
+    console.log(result);
     this.setState({
-      comments: newComments,
+      comments: result,
     });
-
-    console.log(this.state.comments);
   };
 
   render() {
@@ -37,15 +49,18 @@ class CommentPart extends React.Component {
           <ul>
             {COMMENTS.map((el) => {
               return (
-                <li>
+                <li name={el.id}>
                   <span className="username-bold">{el.username}</span>
                   {el.text}
+                  <span>
+                    <i class="fas fa-times" id={el.id} onClick={this.subtractingComment} />
+                  </span>
                 </li>
               );
             })}
           </ul>
         </div>
-        <WriteComments comments={this.state.comments} addingFunction={this.AddingComment} />
+        <WriteComments comments={this.state.comments} addingFunction={this.addingComment} />
       </>
     );
   }

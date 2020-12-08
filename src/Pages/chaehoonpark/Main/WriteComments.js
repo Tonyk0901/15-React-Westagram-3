@@ -13,6 +13,7 @@ class WriteComments extends Component {
     // 아니 이거 arrow function 으로 바꾸니까 오류 안 나는거 모임?
     console.log("UserCommentFunction activated");
     e.preventDefault();
+    console.log(e.target);
     const { name, value } = e.target;
 
     this.setState(
