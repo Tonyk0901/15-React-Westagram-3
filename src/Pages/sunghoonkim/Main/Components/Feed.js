@@ -130,7 +130,7 @@ class Feed extends React.Component {
                   <span>
                     <strong>{likeList[0].userName}</strong>
                     <span>님이</span>
-                    <strong> 매우</strong>
+                    <strong>{" 매우 "}</strong>
                     <span>좋아합니다.</span>
                   </span>
                 </section>
@@ -139,7 +139,7 @@ class Feed extends React.Component {
                     <strong>{profileName}</strong>
                     <div className={"feed-content-text" + (contents.feedClipped ? " clipped" : " un-clipped")}>
                       {contents.content}
-                      <span onClick={this.handleClip} id={id} className="light-font add-cursor">접기</span>
+                      {(feedContentLength) ? <span onClick={this.handleClip} id={id} className="light-font add-cursor">접기</span> : ""}
                     </div>
                     <div onClick={this.handleClip} id={id} className={feedContentLength ? "feed-content-more light-font add-cursor" : "feed-content-more hide"}>{contents.feedClipped ? "더 보기" : ""}</div>
                   </div>

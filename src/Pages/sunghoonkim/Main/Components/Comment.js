@@ -24,7 +24,7 @@ class Comment extends React.Component {
           </span>
         </div>
         <div className="comment-column">
-          <img src="images/sunghoonkim/deleteBtn.svg" className="faIcon add-cursor" onClick={this.handleDelete} alt="delete" />
+          {usrId === "sunghoon__kim" ? <img src="images/sunghoonkim/deleteBtn.svg" className="faIcon add-cursor" onClick={this.handleDelete} alt="delete" /> : ""}
           <img src={isLiked ? "images/sunghoonkim/heartLiked.svg" : "images/sunghoonkim/heartNotLiked.svg"} className="faIcon add-cursor" onClick={this.handleLike} alt="like" />
         </div>
       </section>
