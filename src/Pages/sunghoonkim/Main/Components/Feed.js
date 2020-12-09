@@ -1,17 +1,13 @@
 import React from 'react';
 import Comment from "./Comment.js";
-import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCompass as farCompass } from "@fortawesome/free-regular-svg-icons";
-import { faUser as farUser } from "@fortawesome/free-regular-svg-icons";
-import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 import { faCircle as fasCircle } from "@fortawesome/free-solid-svg-icons";
 import { faCommentDots as farCircle } from "@fortawesome/free-regular-svg-icons";
 import { faCaretSquareUp as farCaretSquareUp } from "@fortawesome/free-regular-svg-icons";
-import { faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
-import { faSearch as fasSearch } from "@fortawesome/free-solid-svg-icons";
+
+import "./Feed.scss";
 
 class Feed extends React.Component {
   constructor(props) {
@@ -21,54 +17,69 @@ class Feed extends React.Component {
     }
   }
 
+  updateComment = (event) => {
+    const id = Number(event.target.name);
+    const newFeeds = [...this.state.feeds];
+    newFeeds[id].commentInputValue = event.target.value;
+    this.setState({
+      feeds: newFeeds
+    });
+  }
+
+  handleClip = (event) => {
+    const id = Number(event.target.id);
+    const newFeeds = [...this.state.feeds];
+
+    newFeeds[id].contents.feedClipped = newFeeds[id].contents.feedClipped ? false : true;
+    this.setState({
+      feeds: newFeeds
+    });
+  }
+
   handleClick = (event) => {
     event.preventDefault();
-    const { comments, commentInputValue } = this.state;
-    comments.push({
+    const id = Number(event.target.name);
+    const { comments, commentInputValue } = this.state.feeds[id];
+    const newFeeds = [...this.state.feeds];
+    newFeeds[id].comments = comments.concat({
       id: Date.now(),
+      feedId: id,
       usrId: "sunghoon__kim",
       comment: commentInputValue,
       isLiked: false,
     });
+    newFeeds[id].commentInputValue = "";
     this.setState({
-      comments,
-      commentInputValue: "",
+      feeds: newFeeds
     });
   }
 
-  updateComment = (event) => {
+  handleDelete = (comment) => {
+    const newFeeds = [...this.state.feeds];
+    const feedId = comment.feedId;
+    newFeeds[feedId].comments = newFeeds[feedId].comments.filter((element) => {
+      return (element !== comment);
+    });
     this.setState({
-      commentInputValue: event.target.value,
+      feeds: newFeeds
     });
   }
 
-  handleDelete = (number) => {
-    number = Number(number);
-    const stateCopy = [...this.state.comments];
-    const newCopy = stateCopy.filter((element) => {
-      return (element.id !== number);
-    });
-
-    this.setState({
-      comments: newCopy,
-    });
-  }
-
-  handleLike = (number) => {
-    number = Number(number);
-    const stateCopy = [...this.state.comments];
-    for (let element of stateCopy) {
-      if (element.id === number) {
+  handleLike = (comment) => {
+    const newFeeds = [...this.state.feeds];
+    const feedId = comment.feedId;
+    for (let element of newFeeds[feedId].comments) {
+      if (element === comment) {
         element.isLiked = element.isLiked ? false : true;
       }
     }
     this.setState({
-      comments: stateCopy,
+      feeds: newFeeds
     });
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/sunghoonkim/commentData.json', {
+    fetch('http://localhost:3000/data/sunghoonkim/data.json', {
       method: 'GET'
     })
       .then(res => res.json())
@@ -80,82 +91,93 @@ class Feed extends React.Component {
   }
 
   render() {
-    return (
-      <div className="feeds">
-        <article>
-          <header className="feed-header">
-            <div className="feed-header-column">
-              <a className="delete-hyper-link" href="/">
-                <img src="images/sunghoonkim/iuProfilePic.jpeg" alt="IU" />
-              </a>
-              <a className="delete-hyper-link" href="/">
-                <span className="feed-header-profilename strong-font">dlwlrma</span>
-              </a>
+    const { feeds } = this.state;
+    if (this.state.feeds.length > 0) {
+      return (
+        feeds.map(({ id, commentInputValue, profilePhoto, profileName, contents, comments, likeList }, index) => {
+          const feedContentLength = (contents.content.length >= 51);
+          return (
+            <div key={index} className="feedsKim" >
+              <article>
+                <header className="feed-header">
+                  <div className="feed-header-column">
+                    <a className="delete-hyper-link" href="/">
+                      <img src={profilePhoto} alt="IU" />
+                    </a>
+                    <a className="delete-hyper-link" href="/">
+                      <span className="feed-header-profilename strong-font">{profileName}</span>
+                    </a>
+                  </div>
+                  <div className="feed-header-column add-cursor">
+                    <FontAwesomeIcon className="faIcon" icon={fasCircle} />
+                    <FontAwesomeIcon className="faIcon" icon={fasCircle} />
+                    <FontAwesomeIcon className="faIcon" icon={fasCircle} />
+                  </div>
+                </header>
+                <img className="feed-image" src={contents.contentImage} alt="IU" />
+                <section className="feed-buttons">
+                  <div className="feed-buttons-column">
+                    <FontAwesomeIcon className="faIcon fasHeart" icon={fasHeart} />
+                    <FontAwesomeIcon className="faIcon" icon={farCircle} />
+                    <FontAwesomeIcon className="faIcon" icon={farCaretSquareUp} />
+                  </div>
+                  <div className="feed-buttons-column">
+                    <img src="images/sunghoonkim/bookmarkBtn.svg" alt="bookmark" />
+                  </div>
+                </section>
+                <section className="feed-likes">
+                  <img src={likeList[0].userProfilePhoto} alt="IU" />
+                  <span>
+                    <strong>{likeList[0].userName}</strong>
+                    <span>님이</span>
+                    <strong> 매우</strong>
+                    <span>좋아합니다.</span>
+                  </span>
+                </section>
+                <section className="feed-contents">
+                  <div className="feed-content">
+                    <strong>{profileName}</strong>
+                    <div className={"feed-content-text" + (contents.feedClipped ? " clipped" : " un-clipped")}>
+                      {contents.content}
+                      <span onClick={this.handleClip} id={id} className="light-font add-cursor">접기</span>
+                    </div>
+                    <div onClick={this.handleClip} id={id} className={feedContentLength ? "feed-content-more light-font add-cursor" : "feed-content-more hide"}>{contents.feedClipped ? "더 보기" : ""}</div>
+                  </div>
+                </section>
+                <section className="feed-comments">
+                  <div className="feed-comment">
+                    {comments.map((comment, index) => {
+                      return (<Comment key={index} comment={comment} handleLike={this.handleLike} handleDelete={this.handleDelete} />)
+                    })}
+                  </div>
+                  <form className="feed-comment-input">
+                    <input
+                      name={id}
+                      className="feed-comment-input-content"
+                      onChange={this.updateComment}
+                      placeholder="댓글 달기..."
+                      value={commentInputValue}
+                    />
+                    <button
+                      name={id}
+                      className="feed-comment-input-button"
+                      onClick={this.handleClick}
+                      disabled={commentInputValue ? false : true}
+                    >
+                      게시
+                      </button>
+                  </form>
+                </section>
+              </article>
             </div>
-            <div className="feed-header-column add-cursor">
-              <FontAwesomeIcon className="faIcon" icon={fasCircle} />
-              <FontAwesomeIcon className="faIcon" icon={fasCircle} />
-              <FontAwesomeIcon className="faIcon" icon={fasCircle} />
-            </div>
-          </header>
-          <img className="feed-image" src="images/sunghoonkim/iuImageSample1.jpg" alt="IU" />
-          <section className="feed-buttons">
-            <div className="feed-buttons-column">
-              <FontAwesomeIcon className="faIcon fasHeart" icon={fasHeart} />
-              <FontAwesomeIcon className="faIcon" icon={farCircle} />
-              <FontAwesomeIcon className="faIcon" icon={farCaretSquareUp} />
-            </div>
-            <div className="feed-buttons-column">
-              <img src="images/sunghoonkim/bookmarkBtn.svg" alt="bookmark" />
-            </div>
-          </section>
-          <section className="feed-likes">
-            <img src="images/sunghoonkim/iuImageSample2.jpg" alt="IU" />
-            <span>
-              <strong>sunghoon_kim</strong>
-              <span>&nbsp;님이</span>
-              <strong>&nbsp;매우</strong>
-              <span>&nbsp;좋아합니다.</span>
-            </span>
-          </section>
-          <section className="feed-contents">
-            <div className="feed-content">
-              <strong>dlwlrma</strong>
-              <p className={feedClipped ? "un-clipped" : "clipped"}>
-                asdasdasdasdasdfsdfsdfsdfasdfasdfasdfasdfasdfsadfsdsdfsdfsdfsdfsdfs
-                    <Link to="/MainKim" className="delete-hyper-link">
-                  <span className="hashTag">#Lovepoem</span>
-                </Link>
-              </p>
-              <span className="light-font add-cursor">&nbsp;더 보기</span>
-            </div>
-          </section>
-          <section className="feed-comments">
-            <div className="feed-comment">
-              {comments.map((element, index) => {
-                return (<Comment key={index} isLiked={element.isLiked} id={element.id} userId={element.usrId} comment={element.comment} handleLike={this.handleLike} handleDelete={this.handleDelete} />)
-              })}
-            </div>
-            <form className="feed-comment-input">
-              <input
-                className="feed-comment-input-content"
-                onChange={this.updateComment}
-                placeholder="댓글 달기..."
-                value={commentInputValue}
-              />
-              <button
-                className="feed-comment-input-button"
-                onClick={this.handleClick}
-                disabled={commentInputValue ? false : true}
-              >
-                게시
-                  </button>
-            </form>
-          </section>
-        </article>
-      </div>
-    );
+          )
+        })
+      );
+    } else {
+      return <h1>로딩중 입니다!</h1>
+    }
+
   }
 }
 
-export default Feed;
+export default Feed;  

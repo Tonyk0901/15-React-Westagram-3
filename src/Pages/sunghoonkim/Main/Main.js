@@ -7,10 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompass as farCompass } from "@fortawesome/free-regular-svg-icons";
 import { faUser as farUser } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
-// import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
-// import { faCircle as fasCircle } from "@fortawesome/free-solid-svg-icons";
-// import { faCommentDots as farCircle } from "@fortawesome/free-regular-svg-icons";
-// import { faCaretSquareUp as farCaretSquareUp } from "@fortawesome/free-regular-svg-icons";
 import { faSearch as fasSearch } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -28,7 +24,7 @@ class Main extends React.Component {
         <nav>
           <div className="nav-wrapper">
             <div className="nav-logos">
-              <Link className="delete-hyper-link" href="/MainKim">
+              <Link className="delete-hyper-link" to="/MainKim">
                 <img src="images/sunghoonkim/insta_logo.svg" alt="instagram-logo" />
                 <span>Westagram</span>
               </Link>
@@ -51,7 +47,9 @@ class Main extends React.Component {
           </div>
         </nav>
         <main className="feeds-main">
-          <Feed />
+          <div className="feeds-wrapper">
+            <Feed />
+          </div>
           <div className="main-right">
             <section className="main-right-profiles">
               <img src="images/sunghoonkim/iuImageSample2.jpg" alt="IU" />

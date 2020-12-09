@@ -3,36 +3,29 @@ import React from 'react';
 import "./Comment.scss";
 
 class Comment extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      comments: [],
-    }
+  handleDelete = () => {
+    this.props.handleDelete(this.props.comment);
   }
 
-  handleDelete = (event) => {
-    this.props.handleDelete(event.target.id);
-  }
-
-  handleLike = (event) => {
-    this.props.handleLike(event.target.id);
+  handleLike = () => {
+    this.props.handleLike(this.props.comment);
   }
 
   render() {
-    const { userId, comment, id, isLiked } = this.props;
+    const { usrId, comment, isLiked } = this.props.comment;
     return (
       <section className="CommentKim">
         <div className="comment-column">
           <strong>
-            {userId}
+            {usrId}
           </strong>
           <span>
             {comment}
           </span>
         </div>
         <div className="comment-column">
-          <img src="images/sunghoonkim/deleteBtn.svg" id={id} className="faIcon add-cursor" onClick={this.handleDelete} alt="delete" />
-          <img src={isLiked ? "images/sunghoonkim/heartLiked.svg" : "images/sunghoonkim/heartNotLiked.svg"} id={id} className="faIcon add-cursor" onClick={this.handleLike} alt="like" />
+          <img src="images/sunghoonkim/deleteBtn.svg" className="faIcon add-cursor" onClick={this.handleDelete} alt="delete" />
+          <img src={isLiked ? "images/sunghoonkim/heartLiked.svg" : "images/sunghoonkim/heartNotLiked.svg"} className="faIcon add-cursor" onClick={this.handleLike} alt="like" />
         </div>
       </section>
     );

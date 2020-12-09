@@ -19,8 +19,6 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log("render happened!");
-    console.log(this.state);
     const { usrId, usrPw } = this.state;
     const inputValid = (usrId.includes('@') && usrPw.length >= 5);
 

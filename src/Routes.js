@@ -17,7 +17,6 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
-          anjwl?
           {/* <Route exact path="/LoginLee" component={LoginLee} />
           <Route exact path="/LoginPark" component={LoginPark} /> */}
           <Route exact path="/LoginKim" component={LoginKim} />
