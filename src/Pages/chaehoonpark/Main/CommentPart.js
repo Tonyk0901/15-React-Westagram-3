@@ -7,11 +7,23 @@ class CommentPart extends React.Component {
 
     this.state = {
       comments: [
-        { id: Math.random() * (10 - 1) + 1, username: "chaehoon.p", text: " 고냥이 발바닥 쭙쭙" },
-        { id: Math.random() * (10 - 1) + 1, username: "jhyeon_300", text: " 고양이보단 개" },
-        { id: Math.random() * (10 - 1) + 1, username: "chaehoon.p", text: " 이건 아니지,," },
+        // { id: Math.random() * (10 - 1) + 1, username: "chaehoon.p", text: " 고냥이 발바닥 쭙쭙" },
+        // { id: Math.random() * (10 - 1) + 1, username: "jhyeon_300", text: " 고양이보단 개" },
+        // { id: Math.random() * (10 - 1) + 1, username: "chaehoon.p", text: " 이건 아니지,," },
       ],
     };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/chaehoonpark/data.json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          comments: res.data,
+        });
+      });
   }
 
   addingComment = (username, text) => {

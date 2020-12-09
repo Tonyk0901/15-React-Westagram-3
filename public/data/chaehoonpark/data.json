@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "id": Math.random(),
+      "username": "chaehoon.p",
+      "text": " 고냥이 발바닥 쭙쭙"
+    },
+    {
+      "id": Math.random(),
+      "username": "jhyeon_300",
+      "text": " 고양이보단 개"
+    },
+    {
+      "id": Math.random(),
+      "username": "chaehoon.p",
+      "text": " 이건 아니지,,"
+    }
+  ]
+}
