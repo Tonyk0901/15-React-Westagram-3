@@ -9,6 +9,8 @@
     justify-content: space-around;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
+    background-color: white;
+    z-index: 1;
 
     div {
         width: 975px;

@@ -1,0 +1,15 @@
+{
+    "data": [{
+            "id": 1,
+            "userName": "wecode",
+            "comment": "Welcome to world best coding bootcamp!",
+            "isLiked": true
+        },
+        {
+            "id": 2,
+            "userName": "daehoieem",
+            "comment": "대호 화이팅!.",
+            "isLiked": false
+        }
+    ]
+}
