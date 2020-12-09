@@ -135,12 +135,17 @@
         padding: 0 13px;
         .feed-content {
           display: flex;
-          align-items: center;
           p {
-            width: 300px;
-            overflow: auto;
-            text-overflow: ellipsis;
-            background-color: red;
+            &.clipped {
+              width: 300px;
+              height: 15px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            &.un-clipped {
+              width: 300px;
+              word-wrap: break-word;
+            }
           }
         }
       }

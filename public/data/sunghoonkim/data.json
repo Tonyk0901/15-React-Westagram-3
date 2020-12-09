@@ -1,0 +1,136 @@
+{
+  "feeds": [
+    {
+      "id": 1,
+      "profilePhoto": "",
+      "profileName": "",
+      "likeList": [
+        {
+          "id": 1,
+          "userName": "sunghoon__kim",
+          "userProfilePhoto": ""
+        }
+      ],
+      "comments": [
+        {
+          "id": 121,
+          "usrId": "wecode",
+          "comment": "Welcome to world best coding bootcamp!",
+          "isLiked": false
+        },
+        {
+          "id": 122,
+          "usrId": "janghyeon._.leeee",
+          "comment": "IU 보다 댕댕이 :)",
+          "isLiked": false
+        },
+        {
+          "id": 1323,
+          "usrId": "im_쭈니",
+          "comment": "IU고 나발이고 헬스하러 가셔야지 말입니다",
+          "isLiked": false
+        },
+        {
+          "id": 124,
+          "usrId": "chaehoon__park",
+          "comment": "제명입니다.",
+          "isLiked": false
+        },
+        {
+          "id": 125,
+          "usrId": "im__daeho",
+          "comment": "눈나나죽어",
+          "isLiked": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "profilePhoto": "",
+      "profileName": "",
+      "likeList": [
+        {
+          "id": 1,
+          "userName": "sunghoon__kim",
+          "userProfilePhoto": ""
+        }
+      ],
+      "comments": [
+        {
+          "id": 121,
+          "usrId": "wecode",
+          "comment": "Welcome to world best coding bootcamp!",
+          "isLiked": false
+        },
+        {
+          "id": 122,
+          "usrId": "janghyeon._.leeee",
+          "comment": "IU 보다 댕댕이 :)",
+          "isLiked": false
+        },
+        {
+          "id": 1323,
+          "usrId": "im_쭈니",
+          "comment": "IU고 나발이고 헬스하러 가셔야지 말입니다",
+          "isLiked": false
+        },
+        {
+          "id": 124,
+          "usrId": "chaehoon__park",
+          "comment": "제명입니다.",
+          "isLiked": false
+        },
+        {
+          "id": 125,
+          "usrId": "im__daeho",
+          "comment": "눈나나죽어",
+          "isLiked": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "profilePhoto": "",
+      "profileName": "",
+      "likeList": [
+        {
+          "id": 1,
+          "userName": "sunghoon__kim",
+          "userProfilePhoto": ""
+        }
+      ],
+      "comments": [
+        {
+          "id": 121,
+          "usrId": "wecode",
+          "comment": "Welcome to world best coding bootcamp!",
+          "isLiked": false
+        },
+        {
+          "id": 122,
+          "usrId": "janghyeon._.leeee",
+          "comment": "IU 보다 댕댕이 :)",
+          "isLiked": false
+        },
+        {
+          "id": 1323,
+          "usrId": "im_쭈니",
+          "comment": "IU고 나발이고 헬스하러 가셔야지 말입니다",
+          "isLiked": false
+        },
+        {
+          "id": 124,
+          "usrId": "chaehoon__park",
+          "comment": "제명입니다.",
+          "isLiked": false
+        },
+        {
+          "id": 125,
+          "usrId": "im__daeho",
+          "comment": "눈나나죽어",
+          "isLiked": false
+        }
+      ]
+    }
+  ]
+}

@@ -19,7 +19,7 @@ class Comment extends React.Component {
   }
 
   render() {
-    const { userId, comment, id, liked } = this.props;
+    const { userId, comment, id, isLiked } = this.props;
     return (
       <section className="CommentKim">
         <div className="comment-column">
@@ -32,7 +32,7 @@ class Comment extends React.Component {
         </div>
         <div className="comment-column">
           <img src="images/sunghoonkim/deleteBtn.svg" id={id} className="faIcon add-cursor" onClick={this.handleDelete} alt="delete" />
-          <img src={liked ? "images/sunghoonkim/heartLiked.svg" : "images/sunghoonkim/heartNotLiked.svg"} id={id} className="faIcon add-cursor" onClick={this.handleLike} alt="like" />
+          <img src={isLiked ? "images/sunghoonkim/heartLiked.svg" : "images/sunghoonkim/heartNotLiked.svg"} id={id} className="faIcon add-cursor" onClick={this.handleLike} alt="like" />
         </div>
       </section>
     );
