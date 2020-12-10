@@ -1,18 +1,16 @@
+$border-color: #DBDBDB;
+$description-color: #8E8E8E;
+$follow-color: #3FA6F7;
+$box-border-color: #e6e6e6;
+
+%flex-dir-column {
+    display: flex;
+    flex-direction: column;
+}
+
 * {
     box-sizing: border-box;
     font-family: 'Apple SD Gothic Neo', 'helvetica neue', Roboto, Helvetica, Arial, sans-serif;
-}
-
-:root {
-    --border-color: #DBDBDB;
-    --description-color: #8E8E8E;
-    --follow-color: #3FA6F7;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    border: 0;
 }
 
 span,

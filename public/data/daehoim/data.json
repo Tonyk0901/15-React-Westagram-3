@@ -8,8 +8,84 @@
         {
             "id": 2,
             "userName": "daehoieem",
-            "comment": "대호 화이팅!.",
+            "comment": "대호 화이팅!",
             "isLiked": false
+        }
+    ],
+    "footer": [{
+            "id": 1,
+            "content": "소개"
+        },
+        {
+            "id": 2,
+            "content": "도움말"
+        },
+        {
+            "id": 3,
+            "content": "홍보 센터"
+        },
+        {
+            "id": 4,
+            "content": "API"
+        },
+        {
+            "id": 5,
+            "content": "채용 정보"
+        },
+        {
+            "id": 6,
+            "content": "개인정보처리방침"
+        },
+        {
+            "id": 7,
+            "content": "약관"
+        },
+        {
+            "id": 8,
+            "content": "위치"
+        },
+        {
+            "id": 9,
+            "content": "인기 계정"
+        },
+        {
+            "id": 10,
+            "content": "해시태그"
+        },
+        {
+            "id": 11,
+            "content": "언어"
+        }
+    ],
+    "asideData": [{
+            "id": 1,
+            "userID": "aaaa",
+            "numOfFollow": "3",
+            "imgSrc": "https://instagram.fmel5-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fmel5-1.fna.fbcdn.net&_nc_ohc=eJfynleCkQkAX_-ylC_&oh=dd98355110e51a60683901deb4937ce4&oe=5FE54B0F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+        },
+        {
+            "id": 2,
+            "userID": "bb",
+            "numOfFollow": "132",
+            "imgSrc": "https://instagram.fmel5-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fmel5-1.fna.fbcdn.net&_nc_ohc=eJfynleCkQkAX_-ylC_&oh=dd98355110e51a60683901deb4937ce4&oe=5FE54B0F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+        },
+        {
+            "id": 3,
+            "userID": "ccccccccc",
+            "numOfFollow": "33",
+            "imgSrc": "https://instagram.fmel5-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fmel5-1.fna.fbcdn.net&_nc_ohc=eJfynleCkQkAX_-ylC_&oh=dd98355110e51a60683901deb4937ce4&oe=5FE54B0F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+        },
+        {
+            "id": 4,
+            "userID": "dddddddd",
+            "numOfFollow": "7",
+            "imgSrc": "https://instagram.fmel5-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fmel5-1.fna.fbcdn.net&_nc_ohc=eJfynleCkQkAX_-ylC_&oh=dd98355110e51a60683901deb4937ce4&oe=5FE54B0F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
+        },
+        {
+            "id": 5,
+            "userID": "eeee",
+            "numOfFollow": "9",
+            "imgSrc": "https://instagram.fmel5-1.fna.fbcdn.net/v/t51.2885-19/44884218_345707102882519_2446069589734326272_n.jpg?_nc_ht=instagram.fmel5-1.fna.fbcdn.net&_nc_ohc=eJfynleCkQkAX_-ylC_&oh=dd98355110e51a60683901deb4937ce4&oe=5FE54B0F&ig_cache_key=YW5vbnltb3VzX3Byb2ZpbGVfcGlj.2"
         }
     ]
 }

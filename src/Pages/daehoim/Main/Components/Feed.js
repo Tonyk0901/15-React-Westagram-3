@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Comment from "./Comment";
 
 export class Feed extends Component {
   render() {
@@ -65,6 +66,7 @@ export class Feed extends Component {
             </p>
           </div>
         </div>
+        <Comment />
       </>
     );
   }

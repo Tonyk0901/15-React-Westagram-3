@@ -1,13 +1,7 @@
-@charset 'utf-8';
-$box-border-color: #e6e6e6;
-
-@mixin flex-center {
-    display: flex;
-    flex-direction: column;
-}
+@import "../Common.scss";
 
 .login {
-    @include flex-center;
+    @extend %flex-dir-column;
     width: 350px;
     height: 380px;
     align-items: center;
@@ -28,7 +22,7 @@ $box-border-color: #e6e6e6;
     }
 
     form {
-        @include flex-center;
+        @extend %flex-dir-column;
 
         Input {
             width: 268px;

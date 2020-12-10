@@ -1,22 +1,22 @@
-@charset 'utf-8';
+@import "../Common.scss";
 
 /*          nav bar           */
 .nav_bar {
-    width: 100%;
-    height: 54px;
     position: fixed;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    height: 54px;
+    border-bottom: 1px solid $border-color;
     background-color: white;
     z-index: 1;
 
     div {
-        width: 975px;
-        height: 54;
         display: flex;
         align-items: center;
+        width: 975px;
+        height: 54;
 
         .nav_logos {
             display: flex;
@@ -37,10 +37,9 @@
         }
 
         .nav_search {
-
-            height: 28px;
             display: flex;
             align-items: center;
+            height: 28px;
 
             input {
                 width: 215px;
@@ -50,16 +49,16 @@
                 background-color: #FAFAFA;
                 padding: 7px;
                 border-radius: 3px;
-                border: 1px solid var(--border-color);
+                border: 1px solid $border-color;
             }
         }
 
         .nav_more {
+            display: flex;
+            justify-content: space-between;
             width: 260px;
             height: 22px;
             padding-right: 20px;
-            display: flex;
-            justify-content: space-between;
 
             img {
                 width: 22px;
@@ -72,24 +71,24 @@
 /*          피드 박스           */
 
 .main_container {
-    width: 100%;
-    position: absolute;
-    margin: 54px auto;
     display: flex;
     justify-content: center;
+    position: absolute;
+    width: 100%;
+    margin: 54px auto;
 
     .feed_box {
         width: 616px;
         margin: 30px 28px 0px 0px;
-        border: 1px solid var(--border-color);
+        border: 1px solid $border-color;
 
         /*          피드 헤더           */
         .Feed {
-            height: 60px;
-            padding: 16px;
-            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
+            height: 60px;
+            padding: 16px;
+            border-bottom: 1px solid $border-color;
 
             .user_img {
                 width: 32px;
@@ -124,8 +123,7 @@
 
         /*          피드 이미지           */
         .feed_content {
-            display: flex;
-            flex-direction: column;
+            @extend %flex-dir-column;
             padding: 4px 7px 0px 7px;
 
             .feed_icons {
@@ -159,7 +157,7 @@
                 }
 
                 .more_comment {
-                    color: var(--description-color);
+                    color: $description-color;
                 }
             }
         }
@@ -168,8 +166,6 @@
             padding: 0 12px;
 
             .comment_section {
-
-
                 .comments {
                     padding: 0;
                     list-style-type: none;
@@ -179,7 +175,6 @@
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
-
 
                         div {
 
@@ -223,11 +218,11 @@
 
         /*          댓글 입력창           */
         .AddComment {
+            display: flex;
             height: 56px;
             padding: 14px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid $border-color;
             margin-top: 10px;
-            display: flex;
 
             input {
                 width: 100%;
@@ -260,10 +255,10 @@
         margin-top: 30px;
 
         .my_profile {
-            height: 56px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            height: 56px;
             margin-top: 20px;
 
             .my_profile_picture {
@@ -282,13 +277,12 @@
 
                 .myName {
                     padding: 1px;
-                    color: var(--description-color);
+                    color: $description-color;
                 }
-
             }
 
             .switchID {
-                color: var(--follow-color);
+                color: ollow-color;
                 font-size: 13px;
             }
         }
@@ -296,7 +290,6 @@
         /*          추천           */
         .recommend {
             margin: 20px 0;
-
 
             .recommendationForYou {
                 display: flex;
@@ -318,10 +311,10 @@
             padding-left: 0;
 
             .userNum {
-                margin-bottom: 8px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                margin-bottom: 8px;
 
                 .reco_user_profile {
                     display: flex;
@@ -341,7 +334,7 @@
 
                         .follow_desc {
                             font-size: 12px;
-                            color: var(--description-color);
+                            color: $description-color;
                             padding: 1px;
                             margin-left: 8px;
                         }
@@ -349,7 +342,7 @@
                 }
 
                 .follow {
-                    color: var(--follow-color);
+                    color: $follow-color;
                     font-size: 13px;
                 }
             }
@@ -366,8 +359,8 @@
                 margin-bottom: 11px;
 
                 li {
-                    color: #CACACA;
                     display: inline-block;
+                    color: #CACACA;
                     white-space: pre;
                     margin-bottom: 5px;
 

@@ -6,6 +6,7 @@ export class Comment extends Component {
     super();
     this.id = 0;
     this.state = {
+      id: this.id++,
       comment: "",
       lists: [],
     };
@@ -39,7 +40,7 @@ export class Comment extends Component {
         comment: comment,
         isLiked: false,
       }),
-      comment: "", // comment 추가 후 다시 input창 비움, concat을 사용해서 배열에 추가
+      comment: "",
     });
   };
 
@@ -48,16 +49,11 @@ export class Comment extends Component {
     this.setState({ lists: newList });
   };
 
-  toggleLike = () => {
-    // const { lists } = this.state; // [... this.state.lists]의 차이
-    this.setState({ likeBtn: !this.state.likeBtn });
-    console.log(this.state.likeBtn);
-  };
-
   render() {
     const { comment, lists } = this.state;
     const { handleSubmit, handleChange } = this;
     let activateBtn = comment.length > 0 && comment.trim();
+    console.log(this.state.lists);
     return (
       <>
         <div className="Comment">

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./Login.scss";
-import "../Common.scss";
+
+const API = "http://3.35.19.3:8000";
 
 class LoginIm extends Component {
   constructor() {
@@ -19,7 +20,22 @@ class LoginIm extends Component {
     });
   };
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
+    fetch(API, {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw,
+      }),
+    })
+      .then((Response) => Response.json())
+      .then((result) => {
+        console.log(result);
+        if (result.Authorization) {
+          localStorage.setItem("token", result.Authorization);
+        }
+      });
     this.props.history.push("/MainIm");
   };
 
@@ -31,7 +47,7 @@ class LoginIm extends Component {
         <header>
           <p>Westagram</p>
         </header>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
@@ -47,11 +63,13 @@ class LoginIm extends Component {
             onChange={this.handleEachInput}
           />
           <div>
-            <button disabled={activateBtn ? false : true}>로그인</button>
+            <button onClick={this.handleSubmit} disabled={activateBtn ? false : true}>
+              로그인
+            </button>
           </div>
         </form>
         <footer>
-          <a href="#none">비밀번호를 잊으셨나요?</a>
+          <Link href="#none">비밀번호를 잊으셨나요?</Link>
         </footer>
       </div>
     );
