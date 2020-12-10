@@ -1,12 +1,12 @@
-import React, {Component} from 'react'; 
+import React, {Component} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark, faComment, faCompass, faHeart, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { faEllipsisH, faSearch } from '@fortawesome/free-solid-svg-icons'; 
 import './Main.scss'
 import "../../../Styles/reset.scss"
-import { faBookmark, faComment, faCompass, faHeart, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisH, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
-class Main extends Component {
+class MainLim extends Component {
   constructor() {
     super();
     this.state = {
@@ -14,14 +14,14 @@ class Main extends Component {
       commentValue: ''
     };
   }
-
+  //댓글 게시버튼 활성화
   handelCommentValue = e => {
     this.setState({
       commentValue: e.target.value
     });
-
   };
 
+  //댓글 기능구현 (조건)
 	addComment = e => {
     e.preventDefault();
     const { commentList, commentValue } = this.state;
@@ -38,11 +38,13 @@ class Main extends Component {
   };
 
   render() {
+
     const activateBtn = (this.state.commentValue.length) !== 0;
     const {commentList} = this.state;
-    console.log(this.state.commentValue)
+
     return (
-      <div className="Main_container">
+    <>  
+      <div className="MainLim">
         <div className="header">
           <nav className="nav_container">
             <div className="logo_left">
@@ -51,11 +53,11 @@ class Main extends Component {
               </div>
             </div>
             <div className="search_bar">
-              <input type="text" placeholder="검색"></input>
+              <input type="text" placeholder="검색" />
               <span><FontAwesomeIcon className="fas" icon={faSearch} /></span>
             </div>
             <div className="logo_right">
-              <FontAwesomeIcon className="far" icon={faCompass} /><FontAwesomeIcon className="far" icon={faHeart} /><img src="images/taejinlim/model.jpg"></img>
+              <FontAwesomeIcon className="far" icon={faCompass} /><FontAwesomeIcon className="far" icon={faHeart} /><img src="images/taejinlim/model.jpg" alt=""></img>
             </div>
           </nav>        
         </div>
@@ -63,14 +65,14 @@ class Main extends Component {
           <div className="center_container">
             <div className="feeds_container">
               <div className="feeds_stories">
-                <div className="stories_array"><img alt="" src="images/taejinlim/model.jpg"></img></div>
+                <div className="stories_array"><img src="images/taejinlim/model.jpg" alt=""></img></div>
               </div>
               <article className="article_box">
                 <div className="art_header">
-                  <div className="user_info"><img src="images/taejinlim/model.jpg"></img><span>Armand_official</span></div>
+                  <div className="user_info"><img src="images/taejinlim/model.jpg" alt=""></img><span>Armand_official</span></div>
                   <div className="dot"><FontAwesomeIcon className="fas" icon={faEllipsisH} /></div>
                 </div>
-                <div className="art_img"><img src="images/taejinlim/smoke2.jpg"></img></div>
+                <div className="art_img"><img src="images/taejinlim/smoke2.jpg" alt=""></img></div>
                 <footer className="art_footer">
                   <div className="art_icon">
                     <div className="icon_left">
@@ -81,7 +83,7 @@ class Main extends Component {
                     </div>
                   </div>
                   <div className="art_like">
-                    <img src="images/taejinlim/model.jpg" />
+                    <img src="images/taejinlim/model.jpg" alt=""/>
                     <span><a>Armand_official</a>님 <a>외 40만명</a>이 좋아합니다</span>  
                   </div>
                   <div className="art_text">
@@ -118,7 +120,7 @@ class Main extends Component {
               <div className="right_info">
                 <div className="aside_logo">
                   <div className="as_logo_left">
-                    <img src="images/taejinlim/model.jpg"></img><span>Armand_official</span>
+                    <img src="images/taejinlim/model.jpg" alt=""></img><span>Armand_official</span>
                   </div>
                   <div className="as_logo_right"><span>전환</span></div>
                 </div>
@@ -129,31 +131,31 @@ class Main extends Component {
                 <div className="aside_down">
                   <div className="recommend">
                     <div className="recommend_info">
-                      <img src="images/taejinlim/chanel2.jpg"></img><span>chanelofficial</span>
+                      <img src="images/taejinlim/chanel2.jpg" alt=""></img><span>chanelofficial</span>
                     </div>
                     <div className="recommend_fw"><span>팔로우</span></div>
                   </div>
                   <div className="recommend">
                     <div className="recommend_info">
-                      <img src="images/taejinlim/ader.jpg"></img><span>adererror_official</span>
+                      <img src="images/taejinlim/ader.jpg" alt=""></img><span>adererror_official</span>
                     </div>
                     <div className="recommend_fw"><span>팔로우</span></div>
                   </div>
                   <div className="recommend">
                     <div className="recommend_info">
-                      <img src="images/taejinlim/cardiB2.jpg"></img><span>iamcardib</span>
+                      <img src="images/taejinlim/cardiB2.jpg" alt=""></img><span>iamcardib</span>
                     </div>
                     <div className="recommend_fw"><span>팔로우</span></div>
                   </div>
                   <div className="recommend">
                     <div className="recommend_info">
-                      <img src="images/taejinlim/tyga.jpg"></img><span>tyga</span>
+                      <img src="images/taejinlim/tyga.jpg" alt=""></img><span>tyga</span>
                     </div>
                     <div className="recommend_fw"><span>팔로우</span></div>
                   </div>
                   <div className="recommend">
                     <div className="recommend_info">
-                      <img src="images/taejinlim/balen.jpg"></img><span>balenciaga</span>
+                      <img src="images/taejinlim/balen.jpg" alt=""></img><span>balenciaga</span>
                     </div>
                     <div className="recommend_fw"><span>팔로우</span></div>
                   </div>
@@ -166,8 +168,9 @@ class Main extends Component {
           </div>
         </div>
       </div>
+    </>  
 )
     }
 }
 
-export default Main;
+export default MainLim;
