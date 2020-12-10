@@ -41,8 +41,8 @@ class Login extends Component {
   }; 
 
   render() {
-    const { id, password } = this.state;
-    const activateBtn = (this.state.id.length && this.state.password.length) !== 0;
+    const { id, password } = this.state; //구조분해할당
+    const activateBtn = (id.length && password.length) !== 0; // this.state.id.length -> id.length
 
     return (
       <div id= "wrapper">
@@ -67,7 +67,7 @@ class Login extends Component {
                 onChange={this.handleInputValueChange}
                 />
               <button to="/main"
-                    className={activateBtn ? "form-btn active" : "form-btn"} 
+                    className= {activateBtn ? "form-btn active" : "form-btn"}
                     type="submit"
                     onClick={this.checkValidation}
                     >로그인</button>

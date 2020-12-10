@@ -4,10 +4,43 @@ import "../../../Styles/reset.scss"
 import { faBookmark, faComment, faCompass, faHeart, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisH, faSearch } from '@fortawesome/free-solid-svg-icons';
-// import { Link } from 'react-router-dom';
+
 
 class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      commentList: [],
+      commentValue: ''
+    };
+  }
+
+  handelCommentValue = e => {
+    this.setState({
+      commentValue: e.target.value
+    });
+
+  };
+
+	addComment = e => {
+    e.preventDefault();
+    const { commentList, commentValue } = this.state;
+    this.setState({
+      commentList: [
+        ...commentList,
+        {
+          id: commentList.length + 1,
+          content: commentValue,
+        }
+      ],
+      commentValue: ''
+    });
+  };
+
   render() {
+    const activateBtn = (this.state.commentValue.length) !== 0;
+    const {commentList} = this.state;
+    console.log(this.state.commentValue)
     return (
       <div className="Main_container">
         <div className="header">
@@ -18,7 +51,7 @@ class Main extends Component {
               </div>
             </div>
             <div className="search_bar">
-              <input value="검색"></input>
+              <input type="text" placeholder="검색"></input>
               <span><FontAwesomeIcon className="fas" icon={faSearch} /></span>
             </div>
             <div className="logo_right">
@@ -55,10 +88,29 @@ class Main extends Component {
                     <span><a>Armand_official</a> &nbsp;React..Shit..</span>
                   </div>
                   <div className="minute"><span>1분 전</span></div>
-                  <div className="art_reply">
-                    <input className="reply" type="text" placeholder="댓글 달기..."></input>
-                    <input className="button" type="button" value="게시" />
-                  </div>
+                  <ul>
+                    {commentList.map((comment, index) => {
+                      return (
+                        <li key={index}>
+                          <span>Username</span>&nbsp;&nbsp;{comment.content}
+                        </li>          
+                      )})}
+                  </ul>
+                  <form className="art_reply" onSubmit={this.addComment}> 
+                    <input 
+                      className="reply"
+                      type="text" 
+                      placeholder="댓글 달기..."
+                      onChange={this.handelCommentValue}
+                      value={this.state.commentValue}
+                      />
+                    <input 
+                      className={activateBtn ? "button active" : "button"} 
+                      type="button" 
+                      value="게시"
+                      onClick={this.addComment}
+                      />
+                  </form>
                 </footer>
               </article>
             </div>
