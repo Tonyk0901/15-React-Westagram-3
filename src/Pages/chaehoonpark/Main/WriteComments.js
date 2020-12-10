@@ -4,30 +4,25 @@ class WriteComments extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Username: "chaehoon.p",
-      UserComment: "",
+      username: "chaehoon.p",
+      userComment: "",
     };
   }
 
   UserCommentFunction = (e) => {
-    // 아니 이거 arrow function 으로 바꾸니까 오류 안 나는거 모임?
-    console.log("UserCommentFunction activated");
     e.preventDefault();
-    console.log(e.target);
+
     const { name, value } = e.target;
 
-    this.setState(
-      {
-        [name]: value,
-      },
-      console.log(this.state.UserComment),
-    );
+    this.setState({
+      [name]: value,
+    });
   };
 
   LinkToAddingComment = (e) => {
     e.preventDefault();
-    console.log("LinkToAddingComment activated");
-    this.props.addingFunction(this.state.Username, this.state.UserComment);
+
+    this.props.addingFunction(this.state.username, this.state.userComment);
   };
 
   render() {

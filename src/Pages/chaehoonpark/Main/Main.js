@@ -19,10 +19,8 @@ class MainPark extends React.Component {
             <div className="left-nav">
               <img
                 src="https://www.flaticon.com/svg/static/icons/svg/87/87390.svg"
-                alt=""
+                alt="instagram-logo"
                 className="ig-logo"
-                width="25px"
-                height="25px"
               />
               <span className="westagram">westagram</span>
             </div>
@@ -33,21 +31,21 @@ class MainPark extends React.Component {
               <a href="">
                 <img
                   src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
-                  alt=""
+                  alt="recommendation"
                   className="images"
                 />
               </a>
               <a href="">
                 <img
                   src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-                  alt=""
+                  alt="heart"
                   className="images"
                 />
               </a>
               <a href="">
                 <img
                   src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
-                  alt=""
+                  alt="personalInfo"
                   className="images"
                 />
               </a>
@@ -165,8 +163,6 @@ class MainPark extends React.Component {
                   <img
                     src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/65837970_483107762493750_1514453576498282496_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=bCeAcFoYRsIAX-XLotA&tp=1&oh=f029aae59ce22ea08b56e2b30e276215&oe=5FEA2502"
                     alt=""
-                    width="30px"
-                    height="30px"
                     className="story-section-user-img"
                   />
                 </div>
@@ -189,7 +185,7 @@ class MainPark extends React.Component {
                 <div className="story-section-user-img-box">
                   <img
                     src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s150x150/65837970_483107762493750_1514453576498282496_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=bCeAcFoYRsIAX-XLotA&tp=1&oh=f029aae59ce22ea08b56e2b30e276215&oe=5FEA2502"
-                    alt=""
+                    alt="user-img"
                     width="30px"
                     height="30px"
                     className="story-section-user-img"

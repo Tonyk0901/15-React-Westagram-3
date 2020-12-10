@@ -76,14 +76,14 @@ div {
         color: #faffff;
         border: 0;
         border-radius: 3px;
-      }
 
-      .activeBtn {
-        background-color: #0095f6;
-      }
+        &.activeBtn {
+          background-color: #0095f6;
+        }
 
-      .inactiveBtn {
-        background-color: #b2dffc;
+        &.inactiveBtn {
+          background-color: #b2dffc;
+        }
       }
 
       .pw-container {
