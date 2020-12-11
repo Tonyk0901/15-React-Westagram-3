@@ -20,6 +20,16 @@ class LoginIm extends Component {
     });
   };
 
+  checkValidation = (e) => {
+    e.preventDefault();
+    const { id, pw } = this.state;
+    const idValidation = id.includes("@");
+    const pwValidation = pw.includes.length >= 5;
+    if (idValidation && pwValidation) {
+      this.handleSubmit();
+    }
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
     fetch(API, {
@@ -31,12 +41,12 @@ class LoginIm extends Component {
     })
       .then((Response) => Response.json())
       .then((result) => {
-        console.log(result);
         if (result.Authorization) {
           localStorage.setItem("token", result.Authorization);
+          alert("로그인 성공");
+          this.props.history.push("/MainIm");
         }
       });
-    this.props.history.push("/MainIm");
   };
 
   render() {

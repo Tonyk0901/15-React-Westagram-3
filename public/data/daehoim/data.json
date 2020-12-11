@@ -1,14 +1,14 @@
 {
-    "data": [{
-            "id": 1,
+    "commentData": [{
+            "id": 110,
             "userName": "wecode",
             "comment": "Welcome to world best coding bootcamp!",
-            "isLiked": true
+            "isLiked": false
         },
         {
-            "id": 2,
+            "id": 423,
             "userName": "daehoieem",
-            "comment": "대호 화이팅!",
+            "comment": "감격스런 리액트 첫 작품!",
             "isLiked": false
         }
     ],

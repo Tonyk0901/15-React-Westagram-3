@@ -1,7 +1,7 @@
 @import "../Common.scss";
 
 /*          nav bar           */
-.nav_bar {
+.Nav {
     position: fixed;
     display: flex;
     justify-content: space-around;
@@ -70,14 +70,14 @@
 
 /*          피드 박스           */
 
-.main_container {
+.MainIm {
     display: flex;
     justify-content: center;
     position: absolute;
     width: 100%;
     margin: 54px auto;
 
-    .feed_box {
+    article {
         width: 616px;
         margin: 30px 28px 0px 0px;
         border: 1px solid $border-color;
@@ -250,7 +250,7 @@
 
 
     /*          aside           */
-    .main_right {
+    .Aside {
         width: 293px;
         margin-top: 30px;
 

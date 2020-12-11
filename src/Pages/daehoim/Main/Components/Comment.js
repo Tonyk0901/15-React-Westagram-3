@@ -6,41 +6,39 @@ export class Comment extends Component {
     super();
     this.id = 0;
     this.state = {
-      id: this.id++,
-      comment: "",
+      commentInput: "",
       lists: [],
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/daehoim/data.json", {
-      method: "GET",
-    })
+    fetch("http://localhost:3000/data/daehoim/data.json")
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          lists: res.data,
+          lists: res.commentData,
         });
       });
   }
 
-  handleChange = (e) => {
+  getInputValue = (e) => {
     this.setState({
-      comment: e.target.value,
+      commentInput: e.target.value,
     });
   };
 
-  handleSubmit = (e) => {
-    const { comment, lists } = this.state;
+  addComment = (e) => {
     e.preventDefault();
+    const { commentInput } = this.state;
+    const newComment = {
+      id: this.id++,
+      userName: "daehoieem",
+      comment: commentInput,
+      isliked: false,
+    };
     this.setState({
-      lists: lists.concat({
-        id: this.id++,
-        userName: "compassionkorea",
-        comment: comment,
-        isLiked: false,
-      }),
-      comment: "",
+      lists: [...this.state.lists, newComment],
+      commentInput: "",
     });
   };
 
@@ -50,17 +48,16 @@ export class Comment extends Component {
   };
 
   render() {
-    const { comment, lists } = this.state;
-    const { handleSubmit, handleChange } = this;
-    let activateBtn = comment.length > 0 && comment.trim();
-    console.log(this.state.lists);
+    const { commentInput, lists } = this.state;
+    const { addComment, getInputValue } = this;
+    let activateBtn = commentInput.length > 0 && commentInput.trim();
     return (
       <>
         <div className="Comment">
           <div className="comment_section">
             <ul className="comments">
               {lists.map((list) => (
-                <CommentList lists={list} removeComment={this.handleRemove} likeComment={this.toggleLike} />
+                <CommentList key={list.toString()} lists={list} removeComment={this.handleRemove} />
               ))}
             </ul>
           </div>
@@ -68,8 +65,8 @@ export class Comment extends Component {
             <p className="updated_time">3주 전</p>
           </div>
         </div>
-        <form className="AddComment" onSubmit={handleSubmit}>
-          <input value={comment} onChange={handleChange} type="text" placeholder="댓글 달기..." />
+        <form className="AddComment" onSubmit={addComment}>
+          <input value={commentInput} onChange={getInputValue} type="text" placeholder="댓글 달기..." />
           <button className="submit_comment" disabled={!activateBtn}>
             게시
           </button>
