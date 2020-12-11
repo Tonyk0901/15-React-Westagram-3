@@ -1,125 +1,148 @@
 @import "../../Common.scss";
 
-.AsideKim {
-  width: 300px;
-
-  .profiles {
-    display: flex;
-
-    img {
-      width: 60px;
-      border-radius: 50%;
-    }
-
-    .column {
-      @extend %flex-justify-center;
-      flex-direction: column;
-      margin-left: 10px;
-
-      .description {
-        margin-top: 5px;
-      }
-    }
+@media screen and (max-width: 1050px) {
+  .AsideKim {
+    display: none;
   }
+}
 
-  .stories {
-    margin-top: 20px;
-    background-color: white;
-    border: $common-border-style;
-    border-radius: 5px;
+@media screen and (min-width: 1050px) {
+  .AsideKim {
+    width: 300px;
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 20px;
-      font-size: 17px;
-    }
+    .wrapper {
+      position: fixed;
+      width: 300px;
 
-    section {
-      .body {
+      .profiles {
         display: flex;
-        margin-bottom: 10px;
 
         img {
-          width: 40px;
-          margin-left: 20px;
+          width: 60px;
           border-radius: 50%;
         }
 
         .column {
-          @extend %flex-justify-center;
+          display: flex;
+          justify-content: center;
           flex-direction: column;
           margin-left: 10px;
 
-          .timetag {
-            margin-top: 3px;
+          .description {
+            margin-top: 5px;
           }
         }
       }
-    }
-  }
 
-  .recommends {
-    margin-top: 20px;
-    background-color: white;
-    border: $common-border-style;
-    border-radius: 5px;
+      .stories {
+        margin-top: 20px;
+        background-color: white;
+        border: $common-border-style;
+        border-radius: 5px;
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 20px;
-      font-size: 17px;
-    }
-
-    section {
-      .body {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-
-        .bigcolumn {
+        header {
           display: flex;
+          justify-content: space-between;
+          padding: 15px 20px;
+          font-size: 17px;
+        }
 
-          img {
-            width: 40px;
-            margin-left: 20px;
-            border-radius: 50%;
-          }
+        section {
+          height: 210px;
+          overflow: scroll;
 
-          .column {
-            @extend %flex-justify-center;
-            flex-direction: column;
-            margin-left: 10px;
+          .body {
+            display: flex;
+            margin-bottom: 10px;
 
-            .timetag {
-              margin-top: 3px;
+            img {
+              width: 40px;
+              margin-left: 20px;
+              border-radius: 50%;
+            }
+
+            .column {
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+              margin-left: 10px;
+
+              .timetag {
+                margin-top: 3px;
+              }
             }
           }
+        }
+      }
 
-          a {
-            @extend %flex-align-center;
-            margin-right: 20px;
-            color: #008aee;
-            font-weight: bold;
-            font-size: 15px;
-            text-decoration: none;
+      .recommends {
+        margin-top: 20px;
+        background-color: white;
+        border: $common-border-style;
+        border-radius: 5px;
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          padding: 15px 20px;
+          font-size: 17px;
+        }
+
+        section {
+          height: 210px;
+          overflow: scroll;
+
+          .body {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            .bigcolumn {
+              display: flex;
+
+              img {
+                width: 40px;
+                margin-left: 20px;
+                border-radius: 50%;
+              }
+
+              .column {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                margin-left: 10px;
+
+                .timetag {
+                  margin-top: 3px;
+                }
+              }
+
+              a {
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+                color: #008aee;
+                font-weight: bold;
+                font-size: 15px;
+                text-decoration: none;
+              }
+            }
           }
         }
       }
-    }
-  }
 
-  .footers {
-    padding: 10px 0;
+      .footers {
+        padding: 10px 0;
 
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 30px;
 
-      a {
-        font-family: sans-serif;
+          a {
+            font-family: sans-serif;
+          }
+        }
       }
     }
   }
