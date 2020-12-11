@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "./Login.scss";
 import "../reset.scss";
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -13,12 +14,10 @@ class Login extends Component {
     };
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
     this.props.history.push("/MainLee");
   };
 
-  // 첫번째 인자 : validating 할 password
-  // 두번째 인자 : 에러 메세지 state 변경 여부
   validatePw = (pw, setErrorMsg = true) => {
     const pwValidation = {
       regexUppercase: /[A-Z]/g,
@@ -42,17 +41,18 @@ class Login extends Component {
 
     for (let validType in pwValidation) {
       if (!pw.match(pwValidation[validType]) && pwLength) {
-        if (setErrorMsg)
+        setErrorMsg &&
           this.setState({
             errorMessage: `비밀번호는 ${errMsgMatch[validType]} 포함해야 합니다.`,
           });
-        return false;
+        return;
+        //let h = setErrorMsg? this.setState({errorMessage: `비밀번호는 ${errMsgMatch[validType]} 포함해야 합니다.`,}) : false
       }
     }
 
     if (pwLength >= MIN_PW_LENGTH) return true;
     else {
-      if (setErrorMsg)
+      setErrorMsg &&
         this.setState({
           errorMessage: pwLength ? "비밀번호는 8자리 이상입니다." : "",
         });
@@ -90,7 +90,7 @@ class Login extends Component {
         <header className="title-box">
           <img src="images/janghyeonlee/westagram_big.png" alt="westagram logo" />
         </header>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input
             type="text"
             className={`id ${isValidId ? "correct-input" : ""}`}
@@ -111,6 +111,7 @@ class Login extends Component {
           <button
             className={`login-button ${isValidId && isValidPw ? "allow-login" : ""}`}
             disabled={!(isValidId && isValidPw)}
+            onClick={this.onClick}
           >
             로그인
           </button>

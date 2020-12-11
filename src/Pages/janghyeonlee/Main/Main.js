@@ -16,7 +16,7 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/images/janghyeonlee/data.json", {
+    fetch("images/janghyeonlee/data.json", {
       method: "GET",
     })
       .then((res) => res.json())

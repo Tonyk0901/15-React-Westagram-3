@@ -6,15 +6,12 @@ import "./Feed.scss";
 
 class Feed extends Component {
   render() {
+    const { feedImgSrc, comments, onCommentsChange, id } = this.props;
     return (
       <article className="feed-box westa-border">
         <FeedHeader />
-        <FeedContent feedImgSrc={this.props.feedImgSrc} />
-        <FeedCommentsBox
-          comments={this.props.comments}
-          onCommentsChange={this.props.onCommentsChange}
-          id={this.props.id}
-        />
+        <FeedContent feedImgSrc={feedImgSrc} />
+        <FeedCommentsBox comments={comments} onCommentsChange={onCommentsChange} id={id} />
       </article>
     );
   }

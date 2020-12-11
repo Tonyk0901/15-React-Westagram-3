@@ -23,12 +23,12 @@ class Comment extends Component {
             <img
               src="images/janghyeonlee/heart.svg"
               alt="comment-heart-button"
-              style={this.props.liked ? { display: "none" } : { display: "block" }}
+              className={this.props.liked ? "hide" : ""}
             />
             <img
               src="images/janghyeonlee/heart_red.svg"
               alt="comment-heart-button"
-              style={this.props.liked ? { display: "block" } : { display: "none" }}
+              className={this.props.liked ? "" : "hide"}
             />
           </button>
           <button className="comment-delete-button" onClick={this.handleRemoveButtonClick}>

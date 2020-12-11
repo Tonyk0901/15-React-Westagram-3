@@ -11,7 +11,7 @@ class Feeds extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/images/janghyeonlee/data.json", {
+    fetch("images/janghyeonlee/data.json", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -23,14 +23,11 @@ class Feeds extends Component {
   }
 
   handleCommentChange = (comments, key) => {
-    console.log(key);
-    //console.log(comments);
     const newFeedsData = this.state.feedsData.map((feed) => {
       if (feed.key === key) feed.comments = comments;
       return feed;
     });
 
-    console.log(newFeedsData);
     this.setState({ feedsData: newFeedsData });
   };
 
