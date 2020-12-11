@@ -1,5 +1,4 @@
 import React from 'react';
-
 import "./Comment.scss";
 
 class Comment extends React.Component {
@@ -15,7 +14,7 @@ class Comment extends React.Component {
     const { usrId, comment, isLiked } = this.props.comment;
     return (
       <section className="CommentKim">
-        <div className="comment-column">
+        <div className="column">
           <strong>
             {usrId}
           </strong>
@@ -23,7 +22,7 @@ class Comment extends React.Component {
             {comment}
           </span>
         </div>
-        <div className="comment-column">
+        <div className="column">
           {usrId === "sunghoon__kim" ? <img src="images/sunghoonkim/deleteBtn.svg" className="faIcon add-cursor" onClick={this.handleDelete} alt="delete" /> : ""}
           <img src={isLiked ? "images/sunghoonkim/heartLiked.svg" : "images/sunghoonkim/heartNotLiked.svg"} className="faIcon add-cursor" onClick={this.handleLike} alt="like" />
         </div>

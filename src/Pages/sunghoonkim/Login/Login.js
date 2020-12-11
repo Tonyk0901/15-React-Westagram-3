@@ -27,9 +27,9 @@ class Login extends React.Component {
         <div>
           <h1>Westagram</h1>
           <form>
-            <input id='usrId' onChange={this.handleChange} className='login-form-input' type='text' placeholder='전화번호, 사용자 이름 또는 이메일' />
-            <input id='usrPw' onChange={this.handleChange} className='login-form-input' type='password' placeholder='비밀번호' />
-            <Link className={inputValid ? "login-form-button active" : "login-form-button not-active"} to='/MainKim'>
+            <input id='usrId' onChange={this.handleChange} type='text' placeholder='전화번호, 사용자 이름 또는 이메일' />
+            <input id='usrPw' onChange={this.handleChange} type='password' placeholder='비밀번호' />
+            <Link className={`${inputValid ? "active" : "not-active"}`} to='/MainKim'>
               로그인
             </Link>
           </form>

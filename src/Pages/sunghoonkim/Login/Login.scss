@@ -28,8 +28,8 @@
     flex-direction: column;
     width: 100%;
 
-    .login-form-input,
-    .login-form-button {
+    input,
+    a {
       width: 550px;
       height: 70px;
       border-radius: 10px;
@@ -37,14 +37,14 @@
       outline: none;
     }
 
-    .login-form-input {
+    input {
       margin-bottom: 12px;
       padding-left: 20px;
       background-color: $common-background-color;
       border: $common-border-style;
     }
 
-    .login-form-button {
+    a {
       @extend %flex-center;
       margin-top: 20px;
       background-color: #c4e1fc;
@@ -54,9 +54,11 @@
       color: white;
       text-decoration: none;
       cursor: pointer;
+
       &.not-active {
         pointer-events: none;
       }
+
       &.active {
         background-color: #0095f6;
       }

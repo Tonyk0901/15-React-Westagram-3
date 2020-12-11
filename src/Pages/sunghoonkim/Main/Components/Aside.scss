@@ -1,0 +1,126 @@
+@import "../../Common.scss";
+
+.AsideKim {
+  width: 300px;
+
+  .profiles {
+    display: flex;
+
+    img {
+      width: 60px;
+      border-radius: 50%;
+    }
+
+    .column {
+      @extend %flex-justify-center;
+      flex-direction: column;
+      margin-left: 10px;
+
+      .description {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .stories {
+    margin-top: 20px;
+    background-color: white;
+    border: $common-border-style;
+    border-radius: 5px;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 20px;
+      font-size: 17px;
+    }
+
+    section {
+      .body {
+        display: flex;
+        margin-bottom: 10px;
+
+        img {
+          width: 40px;
+          margin-left: 20px;
+          border-radius: 50%;
+        }
+
+        .column {
+          @extend %flex-justify-center;
+          flex-direction: column;
+          margin-left: 10px;
+
+          .timetag {
+            margin-top: 3px;
+          }
+        }
+      }
+    }
+  }
+
+  .recommends {
+    margin-top: 20px;
+    background-color: white;
+    border: $common-border-style;
+    border-radius: 5px;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 20px;
+      font-size: 17px;
+    }
+
+    section {
+      .body {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        .bigcolumn {
+          display: flex;
+
+          img {
+            width: 40px;
+            margin-left: 20px;
+            border-radius: 50%;
+          }
+
+          .column {
+            @extend %flex-justify-center;
+            flex-direction: column;
+            margin-left: 10px;
+
+            .timetag {
+              margin-top: 3px;
+            }
+          }
+
+          a {
+            @extend %flex-align-center;
+            margin-right: 20px;
+            color: #008aee;
+            font-weight: bold;
+            font-size: 15px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .footers {
+    padding: 10px 0;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+
+      a {
+        font-family: sans-serif;
+      }
+    }
+  }
+}
