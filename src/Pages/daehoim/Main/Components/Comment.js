@@ -31,7 +31,7 @@ export class Comment extends Component {
     e.preventDefault();
     const { commentInput } = this.state;
     const newComment = {
-      id: this.id++,
+      id: `daehoieem + ${this.id++}`,
       userName: "daehoieem",
       comment: commentInput,
       isliked: false,
@@ -57,7 +57,7 @@ export class Comment extends Component {
           <div className="comment_section">
             <ul className="comments">
               {lists.map((list) => (
-                <CommentList key={list.toString()} lists={list} removeComment={this.handleRemove} />
+                <CommentList key={list.id} lists={list} removeComment={this.handleRemove} />
               ))}
             </ul>
           </div>
