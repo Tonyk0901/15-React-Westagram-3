@@ -73,7 +73,7 @@ class LoginIm extends Component {
             onChange={this.handleEachInput}
           />
           <div>
-            <button onClick={this.handleSubmit} disabled={activateBtn ? false : true}>
+            <button onClick={this.handleSubmit} disabled={!activateBtn}>
               로그인
             </button>
           </div>

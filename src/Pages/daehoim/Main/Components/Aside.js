@@ -49,14 +49,11 @@ export class Aside extends Component {
           <ul className="recommend_user">
             {asideFollowList.map((el) => {
               return (
-                <li className="userNum">
+                <li className="userNum" key={el.id} id={el.id}>
                   <div className="reco_user_profile">
                     <img src={el.imgSrc} className="recommend_user_picture" alt="recommend_user_picture" />
-
                     <div>
-                      <p className="userID" key={el.toString()}>
-                        {el.userID}
-                      </p>
+                      <p className="userID">{el.userID}</p>
                       <p className="follow_desc">daehoieem님 외 {el.numOfFollow}명이 팔로우합니다</p>
                     </div>
                   </div>
